@@ -1,70 +1,218 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+tofix
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The main goal of this app is to find the nearest and fast repair solutions from your actual location.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## User Stories
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **404:** As a user I get to see a 404 page with a feedback message if I try to reach a page that does not exist so that I know it's my fault.
+- **Signup:** As an anonymous user I can sign up on the platform so I can start to use the app.
+- **Login:** As a user I can login to the platform so that I can access the main functions of the app.
+- **Logout:** As a logged in user I can logout from the platform so no one else can use it.
+- **Profile Page**: As a logged in user I can see my full information, choose if I want to be helped or help someone else if I have a establishment.
+- **Categories:** As a logged in user I can choose what category I want be help with.
+- **(Home/Cars/Devices)Sellers List:** As a logged in user I can access the providers list and choose the one I want and see them in the map.
+- **Reviews:** As logged in user I can see the establishment reviews.
+- **Map:** As a logged in user I can see the nearest repair establishments from my location.
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Client / Frontend
 
-### `npm run build`
+## React Router Routes (React App)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Path                             | Component            | Permissions                | Behavior                                          |
+| -------------------------------- | -------------------- | -------------------------- | ------------------------------------------------- |
+| `/login`                         | LoginPage            | anon only `<AnonRoute>`    | Login form, navigates to home page after login.   |
+| `/signup`                        | SignupPage           | anon only `<AnonRoute>`    | Signup form, navigates to home page after signup. |
+| `/`                              | HomePage             | public `<Route>`           | Home page.                                        |
+| `/profile`                       | ProfilePage          | user only `<PrivateRoute>` | User and player profile for the current user.     |
+| `/profile/edit`                  | EditProfilePage      | user only `<PrivateRoute>` | Edit user profile form.                           |
+| `/categories`                    | categoriesPage       | user only `<PrivateRoute>` | See different categories.                         |
+| `/categories/home`               | categoriesHome       | user only `<PrivateRoute>` | Home posts list.                                  |
+| `/categories/auto`               | categoriesAuto       | user only `<PrivateRoute>` | Auto posts list.                                  |
+| `/categories/devices`            | categoriesDevices    | user only `<PrivateRoute>` | Devices posts list .                              |
+| `/categories/create`             | categoriesCreate     | user only `<PrivateRoute>` | Devices posts list .                              |
+| `/categories/home/:homeId`       | HomePostDetails      | user only `<PrivateRoute>` | Home post details                                 |
+| `/categories/auto/:autoId`       | AutoPostDetails      | user only `<PrivateRoute>` | Auto post details.                                |
+| `/categories/devices/:devicesId` | DevicesPostDetails   | user only `<PrivateRoute>` | Device post details.                              |
+| `/reviews`                       | EstablishmentReviews | user only `<PrivateRoute>` | Reviews comments                                  |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pages:
 
-### `npm run eject`
+- LoginPage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- SignupPage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- HomePage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ProfilePage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- EditProfilePage
 
-## Learn More
+- CategoriesPage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- CategoriesHomePage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- CategoriesAutoPage
 
-### Code Splitting
+- CategoriesDevicesPage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- CategoriesHomeDetailsPage
 
-### Analyzing the Bundle Size
+- CategoriesAutoDetailsPage
+- CategoriesDevicesDetailsPage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- CategoriesCreatePostPage
 
-### Making a Progressive Web App
+- ReviewsCreate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- ReviewsPage
 
-### Advanced Configuration
+Components:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- ProfileCard
+- PostCard
+- Navbar
 
-### Deployment
+## Services
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Auth Service**
 
-### `npm run build` fails to minify
+  - `authService` :
+    - `.login(user)`
+    - `.signup(user)`
+    - `.logout()`
+    - `.validate()`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **User Service**
+
+  - `userService` :
+    - `.updateCurrentUser(id, userData)`
+    - `.getCurrentUser()`
+
+- **Category Service**
+
+  - `categoriesService` :
+    - `.addCategories(categoriesData)`
+    - `.getCategoriess()`
+    - `.getOneCategorie(id)`
+    - `.deletecategorie(id)`
+
+- **Post Service**
+
+  - `postService` :
+    - `.createPost(id)`
+    - `.getPost(id)`
+
+<br>
+
+# Server / Backend
+
+## Models
+
+**User model**
+
+```javascript
+{
+  username: { type: String, required: true, unique: true}
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  comments: { type: Schema.Types.ObjectId, ref:'Comment' },
+  establishments: [ { type: Schema.Types.ObjectId, ref:'Establishment' } ]
+}
+```
+
+**Comments model**
+
+```javascript
+ {
+   name: { type: String, required: true },
+   img: { type: String },
+   comment: { type: String}
+
+ }
+```
+
+**Establishment model**
+
+```javascript
+{
+  companyName: { type: String, required: true },
+  location: { type: String, required: true },
+  profileImage: { type: String },
+  phoneNumber: { type: Number},
+  email: { type: String, required: true, unique: true }
+
+}
+```
+
+<br>
+
+## API Endpoints (backend routes)
+
+| HTTP Method | URL                                    | Request Body                                                | Success status | Error Status | Description                                                                                                                     |
+| ----------- | -------------------------------------- | ----------------------------------------------------------- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| GET         | `/auth/profile `                       | Saved session                                               | 200            | 404          | Check if user is logged in and return profile page                                                                              |
+| POST        | `/auth/signup`                         | {name, email, password}                                     | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`                          | {username, password}                                        | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
+| POST        | `/auth/logout`                         |                                                             | 204            | 400          | Logs out the user                                                                                                               |
+| GET         | `/api/categories`                      |                                                             |                | 400          | Show all categories                                                                                                             |
+| GET         | `/api/categories/home`                 |                                                             |                |              | Show specific category.                                                                                                         |
+| GET         | `/api/categories/auto`                 |                                                             |                |              | Show specific category.                                                                                                         |
+| GET         | `/api/categories/devices`              |                                                             |                |              | Show specific category.                                                                                                         |
+| POST        | `/api/categories/establishment/create` | { companyName, location, profileImage, phoneNumber, email } | 201            | 400          | Create a new Establishment.                                                                                                     |
+| PUT         | `/api/profile/edit/:userId`            | { username, img, establishments }                           | 200            | 400          | edit profile                                                                                                                    |
+| DELETE      | `/api/categories/delete/:postId`       |                                                             | 201            | 400          | delete post                                                                                                                     |
+| GET         | `/api/reviews/`                        |                                                             |                |              | show reviews                                                                                                                    |
+| POST        | `/api/reviews/create`                  | { name, img, comment }                                      | 200            | 404          | add review                                                                                                                      |
+| DELETE      | `/api/reviews/:reviewId`               |                                                             | 200            | 400          | delete review                                                                                                                   |
+| GET         | `/api/categories/home/:homeId`         |                                                             | 201            | 400          | specific home post                                                                                                              |
+| GET         | `/api/categories/auto/:autoId`         |                                                             | 201            | 400          | specific auto post                                                                                                              |
+| GET         | `/api/categories/devices/:deviceId`    |                                                             | 201            | 400          | specific device post                                                                                                            |
+
+<br>
+
+## API's
+
+<br>
+
+## Packages
+
+npm react-router-dom
+npm axios
+
+<br>
+
+## Links
+
+### Trello/Kanban
+
+[Link to your trello board](https://trello.com/b/sl7YRuH3/tofix) or a picture of your physical board
+
+### Git
+
+The url to your repository and to your deployed project
+
+[Client repository Link](https://github.com/screeeen/project-client)
+
+[Server repository Link](https://github.com/pedrocncosta/tofix-management-client)
+
+[Deployed App Link](http://heroku.com)
+
+### Slides
+
+[Slides Link](http://slides.com) - The url to your _public_ presentation slides
+
+### Contributors
+
+Francisco Bento - <FranciscoGBento> - <[linkedin-profile-link](https://www.linkedin.com/in/francisco-bento-b290b0233/)>
+
+Pedro Costa - <pedrocncosta> - <[linkedin-profile](https://www.linkedin.com/in/pedro-cn-costa/)>
