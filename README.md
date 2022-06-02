@@ -34,14 +34,13 @@ The main goal of this app is to find the nearest and fast repair solutions from 
 | `/profile`                       | ProfilePage          | user only `<PrivateRoute>` | User and player profile for the current user.     |
 | `/profile/edit`                  | EditProfilePage      | user only `<PrivateRoute>` | Edit user profile form.                           |
 | `/categories`                    | categoriesPage       | user only `<PrivateRoute>` | See different categories.                         |
-| `/categories/home`               | categoriesHome       | user only `<PrivateRoute>` | Home posts list.                                  |
-| `/categories/auto`               | categoriesAuto       | user only `<PrivateRoute>` | Auto posts list.                                  |
-| `/categories/devices`            | categoriesDevices    | user only `<PrivateRoute>` | Devices posts list .                              |
+| `/categories/home`               | categoriesHome     | user only `<PrivateRoute>` | category Home list.                                  |
+| `/categories/auto`               | categoriesAuto      | user only `<PrivateRoute>` | category Auto list.                                  |
+| `/categories/devices`               | categoriesDevices      | user only `<PrivateRoute>` | category Devices list.                                  |
 | `/categories/create`             | categoriesCreate     | user only `<PrivateRoute>` | Devices posts list .                              |
-| `/categories/home/:homeId`       | HomePostDetails      | user only `<PrivateRoute>` | Home post details                                 |
-| `/categories/auto/:autoId`       | AutoPostDetails      | user only `<PrivateRoute>` | Auto post details.                                |
-| `/categories/devices/:devicesId` | DevicesPostDetails   | user only `<PrivateRoute>` | Device post details.                              |
-| `/reviews`                       | EstablishmentReviews | user only `<PrivateRoute>` | Reviews comments                                  |
+| `/categories/:categoryId`       | HomePostDetails      | user only `<PrivateRoute>` | Home post 
+|
+                                |
 
 ## Components
 
@@ -59,22 +58,14 @@ Pages:
 
 - CategoriesPage
 
-- CategoriesHomePage
+- CategoriesTypePage
 
-- CategoriesAutoPage
-
-- CategoriesDevicesPage
-
-- CategoriesHomeDetailsPage
-
-- CategoriesAutoDetailsPage
-- CategoriesDevicesDetailsPage
+- CategoriesTypeDetailsPage
 
 - CategoriesCreatePostPage
 
 - ReviewsCreate
 
-- ReviewsPage
 
 Components:
 
@@ -125,7 +116,7 @@ Components:
   username: { type: String, required: true, unique: true}
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  comments: { type: Schema.Types.ObjectId, ref:'Comment' },
+  comments: [{ type: Schema.Types.ObjectId, ref:'Comment' }],
   establishments: [ { type: Schema.Types.ObjectId, ref:'Establishment' } ]
 }
 ```
@@ -136,7 +127,8 @@ Components:
  {
    name: { type: String, required: true },
    img: { type: String },
-   comment: { type: String}
+   comment: { type: String},
+   author: {type: String}
 
  }
 ```
@@ -165,18 +157,13 @@ Components:
 | POST        | `/auth/login`                          | {username, password}                                        | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
 | POST        | `/auth/logout`                         |                                                             | 204            | 400          | Logs out the user                                                                                                               |
 | GET         | `/api/categories`                      |                                                             |                | 400          | Show all categories                                                                                                             |
-| GET         | `/api/categories/home`                 |                                                             |                |              | Show specific category.                                                                                                         |
-| GET         | `/api/categories/auto`                 |                                                             |                |              | Show specific category.                                                                                                         |
-| GET         | `/api/categories/devices`              |                                                             |                |              | Show specific category.                                                                                                         |
-| POST        | `/api/categories/establishment/create` | { companyName, location, profileImage, phoneNumber, email } | 201            | 400          | Create a new Establishment.                                                                                                     |
-| PUT         | `/api/profile/edit/:userId`            | { username, img, establishments }                           | 200            | 400          | edit profile                                                                                                                    |
-| DELETE      | `/api/categories/delete/:postId`       |                                                             | 201            | 400          | delete post                                                                                                                     |
-| GET         | `/api/reviews/`                        |                                                             |                |              | show reviews                                                                                                                    |
-| POST        | `/api/reviews/create`                  | { name, img, comment }                                      | 200            | 404          | add review                                                                                                                      |
+| GET         | `/api/categories/type`                 |                                                             |                |              | Show specific `              |                                                             |                |              | Show specific category.                                                                                                         |
+| POST        | `/api/categories/establishment` | { companyName, location, profileImage, phoneNumber, email, comments } | 201            | 400          | Create a new Establishment.                                                                                                     |
+| PUT         | `/api/profile/:userId`            | { username, img, establishments }                           | 200            | 400          | edit profile                                                                                                                    |
+| DELETE      | `/api/categories/:postId`       |                                                             | 201            | 400          | delete post                                                                                                                     |                                                                                                                   |
+| POST        | `/api/reviews`                  | { name, img, comment }                                      | 200            | 404          | add review                                                                                                                      |
 | DELETE      | `/api/reviews/:reviewId`               |                                                             | 200            | 400          | delete review                                                                                                                   |
-| GET         | `/api/categories/home/:homeId`         |                                                             | 201            | 400          | specific home post                                                                                                              |
-| GET         | `/api/categories/auto/:autoId`         |                                                             | 201            | 400          | specific auto post                                                                                                              |
-| GET         | `/api/categories/devices/:deviceId`    |                                                             | 201            | 400          | specific device post                                                                                                            |
+| GET         | `/api/categories/type/:id`         |                                                             | 201            | 400          | specific home                                                                                                            |
 
 <br>
 
