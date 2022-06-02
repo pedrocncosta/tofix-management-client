@@ -1,11 +1,12 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Signuppage from "./pages/Signuppage";
-import Loginpage from "./pages/Loginpage";
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -13,12 +14,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
 
         <Route
           path="/signup"
           element={
             <IsAnon>
-              <Signuppage />
+              <SignUpPage />
             </IsAnon>
           }
         />
@@ -26,7 +28,7 @@ function App() {
           path="/login"
           element={
             <IsAnon>
-              <Loginpage />
+              <LoginPage />
             </IsAnon>
           }
         />
