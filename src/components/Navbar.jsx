@@ -17,7 +17,7 @@ function Navbar() {
             <button>Profile</button>
           </Link>
           <button onClick={logoutUser}>Logout</button>
-          <p>{user.username}</p>
+          <p>Hi {user.username}</p>
         </>
       )}
 
