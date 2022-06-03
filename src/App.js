@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
-          path="/profile"
+          path="/user/:userId"
           element={
             <IsPrivate>
               <ProfilePage />
