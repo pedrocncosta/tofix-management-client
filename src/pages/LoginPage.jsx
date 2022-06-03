@@ -5,7 +5,7 @@ import axios from "axios";
 
 function Loginpage() {
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -13,12 +13,12 @@ function Loginpage() {
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
+  const handleUsername = (e) => setUsername(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { email, password };
+    const body = { username, password };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/login`, body)
@@ -37,8 +37,13 @@ function Loginpage() {
       <h1>Login</h1>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleUsername}
+        />
 
         <label htmlFor="password">Password</label>
         <input
