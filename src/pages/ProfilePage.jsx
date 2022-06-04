@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -35,9 +36,7 @@ function ProfilePage() {
         <div>
           <p> Username: {user.username}</p>
           <p> Email: {user.email}</p>
-          {/* {user.map(()=> {return (<p>{user.establishment}</p>)
-            
-          })} */}
+
           <p>{user.establishments[0].companyName}</p>
 
           <p>{user.establishments[0].comments[0].comments}</p>

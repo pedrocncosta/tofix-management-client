@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 function Signuppage() {
   const [password, setPassword] = useState("");
@@ -32,41 +33,56 @@ function Signuppage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Name</label>
-        <input
+    <Form className="login-form" onSubmit={handleSubmit}>
+      <h1 className="text-center">Sign Up</h1>
+      <FormGroup>
+        <Label htmlFor="username">Name</Label>
+        <Input
           type="text"
           name="username"
           value={username}
           onChange={handleUsername}
         />
+      </FormGroup>
 
-        <label htmlFor="password">Password</label>
-        <input
+      <FormGroup>
+        <Label htmlFor="password">Password</Label>
+        <Input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
+      </FormGroup>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <FormGroup>
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" name="email" value={email} onChange={handleEmail} />
+      </FormGroup>
 
+      <FormGroup>
         <select name="profileType" onChange={handleProfileType}>
           <option value="admin">Professional</option>
           <option value="user">User</option>
         </select>
+      </FormGroup>
 
-        <button type="submit">Sign Up</button>
-      </form>
+      <FormGroup>
+        <Button className="btn-lg mb-4" block type="submit">
+          Sign Up
+        </Button>
+      </FormGroup>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p>Already have an account?</p>
-      <Link to="/login"> Login</Link>
-    </div>
+      <FormGroup>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <p className="text-center ">Already have an account?</p>
+        <Link to="/login">
+          <Button className="btn-lg " block type="submit">
+            Log in
+          </Button>
+        </Link>
+      </FormGroup>
+    </Form>
   );
 }
 

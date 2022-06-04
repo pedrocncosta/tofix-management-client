@@ -1,30 +1,35 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { Button } from "reactstrap";
+import loginLogo from "../assets/pngwing.com.png";
+import homeLogo from "../assets/home-icon.png";
+
 
 function Navbar() {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
 
   return (
-    <nav>
+    <nav className="myNav">
       <Link to="/">
-        <button>Home</button>
+        <img src={homeLogo} alt="homeLogo" />
       </Link>
 
       {isLoggedIn && (
         <>
           <Link to={`/user/${user._id}`}>
-            <button>Profile</button>
+            <Button color="BurlyWood">Profile</Button>
           </Link>
-          <button onClick={logoutUser}>Logout</button>
-          <p>Hi {user.username}</p>
+          <Button color="BurlyWood" onClick={logoutUser}>
+            Logout
+          </Button>
         </>
       )}
 
       {!isLoggedIn && (
         <>
           <Link to="/login">
-            <button>Login</button>
+            <img src={loginLogo} alt="loginIcon" />
           </Link>
         </>
       )}

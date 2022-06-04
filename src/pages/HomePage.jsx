@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { Button } from "reactstrap";
 function HomePage() {
   return (
-    <div>
+    <div className="mainHome">
       <img
-        src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.build-review.com%2F5-common-repairs-tenants-are-responsible-for%2F&psig=AOvVaw3-BqCPrRdL92z5IqTfwbd_&ust=1654272656612000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJiakIWUj_gCFQAAAAAdAAAAABAD"
+        src="https://www.build-review.com/wp-content/webp-express/webp-images/uploads/2021/04/Home-repair-1.jpg.webp"
         alt="repairsImage"
       />
       <article>
@@ -15,7 +15,7 @@ function HomePage() {
           solutions for your everyday problems.
         </p>
         <Link to={`/login`}>
-          <button>Join us</button>
+          <Button color="warning">Join us</Button>
         </Link>
       </article>
     </div>
