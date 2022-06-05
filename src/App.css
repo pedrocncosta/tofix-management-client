@@ -21,11 +21,12 @@
   flex-wrap: wrap;
 }
 
-.mainHome img {
-  width: 100vw;
-  height: auto;
+.homeCard {
+  
+  margin-top: 5%;
 }
 
+/*login&signup*/
 .login-form {
   width: 100%;
   padding: 15px;
