@@ -16,6 +16,7 @@ function HomePage() {
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -28,6 +29,7 @@ function HomePage() {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100"

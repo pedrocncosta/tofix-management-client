@@ -76,7 +76,7 @@ function Signuppage() {
       <FormGroup>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <p className="text-center ">Already have an account?</p>
-        <Link to="/login">
+        <Link to="/login" style={{ textDecoration: "none" }}>
           <Button className="btn-lg " block type="submit">
             Log in
           </Button>
