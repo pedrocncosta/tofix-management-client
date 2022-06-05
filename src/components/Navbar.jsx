@@ -1,16 +1,36 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Button } from "reactstrap";
-import loginLogo from "../assets/pngwing.com.png";
-import homeLogo from "../assets/home-icon.png";
+import { Button } from "react-bootstrap";
 
-
-function Navbar() {
+function Navbar(props) {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
 
   return (
     <nav className="myNav">
+      <Link to="/">toFix</Link>
+
+      {isLoggedIn && (
+        <>
+          <Link to={`/user/${user._id}`}>
+            <Button variant="warning">Profile</Button>
+          </Link>
+          <Button variant="warning" onClick={logoutUser}>
+            Logout
+          </Button>
+        </>
+      )}
+
+      {!isLoggedIn && (
+        <>
+          <Link to="/login">Login</Link>
+        </>
+      )}
+    </nav>
+  );
+}
+
+/*  <nav className="myNav">
       <Link to="/">
         <img src={homeLogo} alt="homeLogo" />
       </Link>
@@ -33,8 +53,6 @@ function Navbar() {
           </Link>
         </>
       )}
-    </nav>
-  );
-}
+    </nav> */
 
 export default Navbar;
