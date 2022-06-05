@@ -3,7 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 function NavbarComp() {
-  const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
+  const { isLoggedIn, user, establish, logoutUser } = useContext(AuthContext);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -16,6 +16,10 @@ function NavbarComp() {
               <>
                 <Nav.Link href={`/user/${user._id}`}>Profile</Nav.Link>
                 <Nav.Link onClick={logoutUser}>Logout</Nav.Link>
+                <Nav.Link href={`/categories/type`}>Establishments</Nav.Link>
+                {/* <Nav.Link href={`/establishment/${establish._id}`}>
+                  Establishments
+                </Nav.Link> */}
               </>
             )}
 
