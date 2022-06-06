@@ -58,8 +58,8 @@ function EstablishmentDetailsPage() {
             <li key={comment._id}>
               <h3>{comment.name}</h3>
               <h4>Description:</h4>
-              <p>{comment.comments}
-              </p>
+              <p>{comment.comments}</p>
+              <p>Author: {comment.author.username}</p>
             </li>
           );
         })}
