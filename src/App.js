@@ -7,6 +7,7 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
+import CreateEstablishmentPage from "./pages/CreateEstablishmentPage";
 
 function App() {
   return (
@@ -37,6 +38,15 @@ function App() {
             <IsAnon>
               <LoginPage />
             </IsAnon>
+          }
+        />
+
+        <Route
+          path="/categories/create"
+          element={
+            <IsPrivate>
+              <CreateEstablishmentPage />
+            </IsPrivate>
           }
         />
       </Routes>
