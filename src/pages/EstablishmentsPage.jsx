@@ -24,11 +24,13 @@ function EstablishmentsPage() {
   return (
     <div>
       {establishments.map((establish) => {
-        <div key={establish._id}>
-          <Link to={`/establishment/${establish._id}`}>
-            <h4>{establish.companyName}</h4>
-          </Link>
-        </div>;
+        return (
+          <div key={establish._id}>
+            <Link to={`/establishment/${establish._id}`}>
+              <h4>{establish.companyName}</h4>
+            </Link>
+          </div>
+        );
       })}
     </div>
   );
