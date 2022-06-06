@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function EstablishmentDetailsPage() {
   const [establishment, setEstablishment] = useState(null);
   const { postId } = useParams();
+  const navigate = useNavigate();
 
   const getEstablishment = async () => {
     try {
@@ -12,6 +13,17 @@ function EstablishmentDetailsPage() {
         `${process.env.REACT_APP_API_URL}/api/categories/type/${postId}`
       );
       setEstablishment(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteEstablishment = async () => {
+    try {
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}/api/categories/type/${postId}`
+      );
+      navigate("/categories");
     } catch (error) {
       console.log(error);
     }
@@ -44,6 +56,7 @@ function EstablishmentDetailsPage() {
             </li>
           );
         })}
+      <button onClick={deleteEstablishment}>Delete Establishment</button>
     </div>
   );
 }

@@ -17,6 +17,8 @@ function EstablishmentsPage() {
     }
   };
 
+  
+
   useEffect(() => {
     getAllEstablishments();
   }, []);
