@@ -37,12 +37,13 @@ function AddCommentPage() {
         <input type="text" name="name" value={name} onChange={handleName} />
 
         <label htmlFor="comments">Comment:</label>
-        <input
-          type="text"
-          name="comments"
+        <textarea
+          name="description"
+          cols="30"
+          rows="10"
           value={comments}
           onChange={handleComments}
-        />
+        ></textarea>
       </form>
     </div>
   );
