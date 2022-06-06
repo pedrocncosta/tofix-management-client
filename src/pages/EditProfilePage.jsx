@@ -65,6 +65,7 @@ function EditProfilePage() {
       .put(`http://localhost:5005/api/user/${userId}`, body)
       .then(() => {
         setProfileType("");
+        setUsername("");
         setComments("");
         navigate(`/user/${userId}`);
       })

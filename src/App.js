@@ -11,6 +11,7 @@ import CreateEstablishmentPage from "./pages/CreateEstablishmentPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import EstablishmentsPage from "./pages/EstablishmentsPage";
 import EstablishmentDetailsPage from "./pages/EstablishmentDetailsPage";
+import CategoriesPage from "./pages/CategoriesPage";
 
 function App() {
   return (
@@ -23,6 +24,15 @@ function App() {
           element={
             <IsPrivate>
               <ProfilePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/categories"
+          element={
+            <IsPrivate>
+              <CategoriesPage />
             </IsPrivate>
           }
         />
