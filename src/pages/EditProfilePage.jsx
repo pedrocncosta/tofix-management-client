@@ -32,7 +32,7 @@ function EditProfilePage() {
   const deleteProfile = async () => {
     try {
       await axios.delete(`http://localhost:5005/api/user/${userId}`);
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

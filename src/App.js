@@ -8,6 +8,7 @@ import IsAnon from "./components/IsAnon";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import CreateEstablishmentPage from "./pages/CreateEstablishmentPage";
+import EditProfilePage from "./pages/EditProfilePage";
 
 function App() {
   return (
@@ -38,6 +39,15 @@ function App() {
             <IsAnon>
               <LoginPage />
             </IsAnon>
+          }
+        />
+
+        <Route
+          path="/profile/edit/:userId"
+          element={
+            <IsPrivate>
+              <EditProfilePage />
+            </IsPrivate>
           }
         />
 
