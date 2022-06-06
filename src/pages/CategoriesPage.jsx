@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import homeLogo from "../assets/casa.png";
 import carLogo from "../assets/carro.png";
 import techLogo from "../assets/e-mail.png";
-import { Container, Image } from "react-bootstrap";
+import {  Image } from "react-bootstrap";
 /* import Image from "react-bootstrap/Image";
  */
 function CategoriesPage() {
   return (
-    <Container className="container categoriesMain">
+    <div className=" categoriesMain">
       <Link to={"/home"}>
         <Image className="container imgSize" src={homeLogo} alt="homeLogo" />
       </Link>
@@ -21,7 +21,7 @@ function CategoriesPage() {
       <Link to={"/tech"}>
         <Image className="container imgSize" src={techLogo} alt="techLogo" />
       </Link>
-    </Container>
+    </div>
   );
 }
 

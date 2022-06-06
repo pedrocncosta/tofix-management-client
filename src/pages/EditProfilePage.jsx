@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 function EditProfilePage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [profileType, setProfileType] = useState("");
   const [comments, setComments] = useState("");
   const [establishments, setEstablishments] = useState("");
@@ -21,7 +21,6 @@ function EditProfilePage() {
       setProfileType(response.data.profileType);
       setUsername(response.data.username);
       setEmail(response.data.email);
-      setPassword(response.data.password);
       setComments(response.data.comments);
       setEstablishments(response.data.establishments);
     } catch (error) {
@@ -45,7 +44,6 @@ function EditProfilePage() {
   const handleProfileType = (e) => setProfileType(e.target.value);
   const handleUsername = (e) => setUsername(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
   const handleComments = (e) => setComments(e.target.value);
   const handleEstablishments = (e) => setEstablishments(e.target.value);
 
@@ -55,7 +53,6 @@ function EditProfilePage() {
     const body = {
       username,
       email,
-      password,
       comments,
       establishments,
       profileType,
@@ -67,60 +64,71 @@ function EditProfilePage() {
         setProfileType("");
         setUsername("");
         setComments("");
+        setEstablishments("");
         navigate(`/user/${userId}`);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="EditProjectPage">
-      <h3>Edit the Project</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
+    <Form className="EditProjectPage login-form" onSubmit={handleSubmit}>
+      <h3>Edit Profile</h3>
+      <FormGroup>
+        <Label htmlFor="username">Username</Label>
+        <Input
           type="text"
           name="username"
           value={username}
           onChange={handleUsername}
         />
+      </FormGroup>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <label htmlFor="comments">Comments</label>
-        <textarea
+      <FormGroup>
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" name="email" value={email} onChange={handleEmail} />
+      </FormGroup>
+      
+      <FormGroup>
+        <Label htmlFor="comments">Comments</Label>
+        <Input
+          type="textarea"
           name="comments"
           cols="30"
           rows="10"
           value={comments}
           onChange={handleComments}
-        ></textarea>
+        ></Input>
+      </FormGroup>
 
-        <label htmlFor="establishments">Establishments</label>
-        <input
+      <FormGroup>
+        <Label htmlFor="establishments">Establishments</Label>
+        <Input
           type="text"
           name="establishments"
           value={establishments}
           onChange={handleEstablishments}
         />
+      </FormGroup>
 
-        <select name="profileType" onChange={handleProfileType}>
+      <FormGroup>
+        <Input type="select" name="profileType" onChange={handleProfileType}>
           <option value="admin">Professional</option>
           <option value="user">User</option>
-        </select>
+        </Input>
+      </FormGroup>
 
-        <button type="submit">Submit changes</button>
-      </form>
-      <button onClick={deleteProfile}>Delete</button>
-    </div>
+      <FormGroup>
+        <Button block type="submit">
+          Submit changes
+        </Button>
+      </FormGroup>
+
+      <FormGroup>
+        <Button block onClick={deleteProfile}>
+          Delete profile
+        </Button>
+      </FormGroup>
+    </Form>
   );
 }
 
