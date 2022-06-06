@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import AddCommentPage from "./AddCommentPage";
 
 function EstablishmentsPage() {
   const [establishments, setEstablishments] = useState([]);
@@ -11,12 +10,13 @@ function EstablishmentsPage() {
       let response = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/categories/type`
       );
+      
+      console.log(`HEY ------------------------------------------ ${response.data}`)
       setEstablishments(response.data);
     } catch (error) {
       console.log(error);
     }
   };
-
   
 
   useEffect(() => {
