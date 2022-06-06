@@ -75,14 +75,6 @@ function EditProfilePage() {
     <div className="EditProjectPage">
       <h3>Edit the Project</h3>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="profileType">profileType</label>
-        <input
-          type="text"
-          name="profileType"
-          value={profileType}
-          onChange={handleProfileType}
-        />
-
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -102,11 +94,6 @@ function EditProfilePage() {
           onChange={handlePassword}
         />
 
-        <select name="profileType" onChange={handleProfileType}>
-          <option value="admin">Professional</option>
-          <option value="user">User</option>
-        </select>
-
         <label htmlFor="comments">Comments</label>
         <textarea
           name="comments"
@@ -124,7 +111,12 @@ function EditProfilePage() {
           onChange={handleEstablishments}
         />
 
-        <button type="submit">Edit</button>
+        <select name="profileType" onChange={handleProfileType}>
+          <option value="admin">Professional</option>
+          <option value="user">User</option>
+        </select>
+
+        <button type="submit">Submit changes</button>
       </form>
       <button onClick={deleteProfile}>Delete</button>
     </div>

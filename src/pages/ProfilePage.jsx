@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
+
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function ProfilePage() {
   const { userId } = useParams();
@@ -56,9 +57,15 @@ function ProfilePage() {
               <b> Comment: </b>
               {user.establishments[0].comments[0].comments}
             </Card.Text>
-            <Button size="lg" variant="warning">
-              Edit
-            </Button>
+            <Link
+              style={{ textDecoration: "none" }}
+              className="d-grid gap-2 "
+              to={"/profile/edit/:userId"}
+            >
+              <Button size="lg" variant="warning">
+                Edit
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
       )}
