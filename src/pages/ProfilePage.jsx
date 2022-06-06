@@ -51,16 +51,16 @@ function ProfilePage() {
             </Card.Text>
             <Card.Text>
               <b> Establishment: </b>
-              {user.establishments[0].companyName}
+              {user.establishments.length ? user.establishments[0].companyName : "No company"}
             </Card.Text>
             <Card.Text>
               <b> Comment: </b>
-              {user.establishments[0].comments[0].comments}
+              {(user.establishments.length && user.establishments[0].comments.length) && user.establishments[0].comments[0].comments ? user.establishments[0].comments[0].comments : "no comments"}
             </Card.Text>
             <Link
               style={{ textDecoration: "none" }}
               className="d-grid gap-2 "
-              to={"/profile/edit/:userId"}
+              to={`/profile/edit/${userId}`}
             >
               <Button size="lg" variant="warning">
                 Edit

@@ -15,8 +15,14 @@ function EditProfilePage() {
 
   const getProfile = async () => {
     try {
+      const getToken = localStorage.getItem("authToken");
       let response = await axios.get(
-        `http://localhost:5005/api/user/${userId}`
+        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
       );
       setProfileType(response.data.profileType);
       setUsername(response.data.username);
@@ -30,7 +36,16 @@ function EditProfilePage() {
 
   const deleteProfile = async () => {
     try {
-      await axios.delete(`http://localhost:5005/api/user/${userId}`);
+      const getToken = localStorage.getItem("authToken");
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
+
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -58,8 +73,13 @@ function EditProfilePage() {
       profileType,
     };
 
+    const getToken = localStorage.getItem("authToken");
     axios
-      .put(`http://localhost:5005/api/user/${userId}`, body)
+      .put(`${process.env.REACT_APP_API_URL}/api/profile/${userId}`, body, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      })
       .then(() => {
         setProfileType("");
         setUsername("");
@@ -87,7 +107,7 @@ function EditProfilePage() {
         <Label htmlFor="email">Email</Label>
         <Input type="email" name="email" value={email} onChange={handleEmail} />
       </FormGroup>
-      
+
       <FormGroup>
         <Label htmlFor="comments">Comments</Label>
         <Input
