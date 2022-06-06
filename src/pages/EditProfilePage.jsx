@@ -62,11 +62,11 @@ function EditProfilePage() {
     };
 
     axios
-      .put(`http://localhost:5005/api/projects/${projectId}`, body)
+      .put(`http://localhost:5005/api/user/${userId}`, body)
       .then(() => {
         setProfileType("");
         setComments("");
-        navigate(`/projects/${projectId}`);
+        navigate(`/user/${userId}`);
       })
       .catch((err) => console.log(err));
   };
@@ -102,13 +102,10 @@ function EditProfilePage() {
           onChange={handlePassword}
         />
 
-        <label htmlFor="profileType">profileType</label>
-        <input
-          type="text"
-          name="profileType"
-          value={profileType}
-          onChange={handleProfileType}
-        />
+        <select name="profileType" onChange={handleProfileType}>
+          <option value="admin">Professional</option>
+          <option value="user">User</option>
+        </select>
 
         <label htmlFor="comments">Comments</label>
         <textarea
