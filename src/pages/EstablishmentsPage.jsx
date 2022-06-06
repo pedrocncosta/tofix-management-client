@@ -26,7 +26,7 @@ function EstablishmentsPage() {
       {establishments.map((establish) => {
         return (
           <div key={establish._id}>
-            <Link to={`/establishment/${establish._id}`}>
+            <Link to={`/categories/type/${establish._id}`}>
               <h4>{establish.companyName}</h4>
             </Link>
           </div>

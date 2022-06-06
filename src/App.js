@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import CreateEstablishmentPage from "./pages/CreateEstablishmentPage";
 import EditProfilePage from "./pages/EditProfilePage";
+import EstablishmentsPage from "./pages/EstablishmentsPage";
+import EstablishmentDetailsPage from "./pages/EstablishmentDetailsPage";
 
 function App() {
   return (
@@ -56,6 +58,24 @@ function App() {
           element={
             <IsPrivate>
               <CreateEstablishmentPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/categories/type"
+          element={
+            <IsPrivate>
+              <EstablishmentsPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/categories/type/:postId"
+          element={
+            <IsPrivate>
+              <EstablishmentDetailsPage />
             </IsPrivate>
           }
         />
