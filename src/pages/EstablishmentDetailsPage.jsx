@@ -9,8 +9,14 @@ function EstablishmentDetailsPage() {
 
   const getEstablishment = async () => {
     try {
+      const getToken = localStorage.getItem("authToken");
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/categories/type/${postId}`
+        `${process.env.REACT_APP_API_URL}/api/categories/type/${postId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
       );
       setEstablishment(response.data);
     } catch (error) {
@@ -42,7 +48,7 @@ function EstablishmentDetailsPage() {
           <p>
             Contacts: {establishment.phoneNumber} {establishment.email}
           </p>
-          <p>Owner: {establishment.establishmentOwner}</p>
+          <p>Owner: {establishment.establishmentOwner.username}</p>
         </>
       )}
 
@@ -52,7 +58,8 @@ function EstablishmentDetailsPage() {
             <li key={comment._id}>
               <h3>{comment.name}</h3>
               <h4>Description:</h4>
-              <p>{comment.comments}</p>
+              <p>{comment.comments}
+              </p>
             </li>
           );
         })}

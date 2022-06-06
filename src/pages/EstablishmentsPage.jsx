@@ -7,17 +7,22 @@ function EstablishmentsPage() {
 
   const getAllEstablishments = async () => {
     try {
+      const getToken = localStorage.getItem("authToken");
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/categories/type`
+        `${process.env.REACT_APP_API_URL}/api/categories/type`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
       );
-      
-      console.log(`HEY ------------------------------------------ ${response.data}`)
+
+      console.log("hey", response.data);
       setEstablishments(response.data);
     } catch (error) {
       console.log(error);
     }
   };
-  
 
   useEffect(() => {
     getAllEstablishments();
