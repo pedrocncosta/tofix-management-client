@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 function CreateEstablishmentPage() {
   const [companyName, setCompanyName] = useState("");
   const [location, setLocation] = useState("");
-  /* const [profileImage, setProfileImage] = useState(""); */
+  const [imageUrl, setImageUrl] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
@@ -14,9 +14,27 @@ function CreateEstablishmentPage() {
 
   const navigate = useNavigate();
 
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    const getToken = localStorage.getItem("authToken");
+    uploadData.append("profileImage", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setImageUrl(response.data.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
+
   const handleCompanyName = (e) => setCompanyName(e.target.value);
   const handleLocation = (e) => setLocation(e.target.value);
-  /* const handleProfileImage = (e) => setProfileImage(e.target.value); */
+  const handleImageUrl = (e) => setImageUrl(e.target.value);
   const handlePhoneNumber = (e) => setPhoneNumber(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handleComments = (e) => setComments(e.target.value);
@@ -27,7 +45,7 @@ function CreateEstablishmentPage() {
     const body = {
       companyName,
       location,
-      //profileImage,
+      imageUrl,
       phoneNumber,
       email,
       comments,
@@ -36,16 +54,20 @@ function CreateEstablishmentPage() {
 
     const getToken = localStorage.getItem("authToken");
     axios
-      .post(`${process.env.REACT_APP_API_URL}/api/categories/establishment`, body, {
-        headers: {
-          Authorization: `Bearer ${getToken}`,
-        },
-      })
+      .post(
+        `${process.env.REACT_APP_API_URL}/api/categories/establishment`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      )
 
       .then(() => {
         setCompanyName("");
         setLocation("");
-        //setProfileImage("");
+        setImageUrl("");
         setPhoneNumber(0);
         setEmail("");
         setComments("");
@@ -58,6 +80,12 @@ function CreateEstablishmentPage() {
   return (
     <Form className="login-form" onSubmit={handleSubmit}>
       <h1>Regist your Establishment</h1>
+
+      <FormGroup>
+        <Label htmlFor="imageUrl">Image</Label>
+        <Input type="file" name="imageUrl" onChange={handleFileUpload} />
+      </FormGroup>
+
       <FormGroup>
         <Label htmlFor={companyName}>Establishment Name: </Label>
         <Input
@@ -93,7 +121,7 @@ function CreateEstablishmentPage() {
         <Input type="text" name="email" value={email} onChange={handleEmail} />
       </FormGroup>
 
-     {/*  <FormGroup>
+      {/*  <FormGroup>
         <Label htmlFor={comments}>Comments: </Label>
         <Input
           type="textarea"

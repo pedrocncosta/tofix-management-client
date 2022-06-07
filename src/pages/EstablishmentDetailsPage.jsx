@@ -49,6 +49,7 @@ function EstablishmentDetailsPage() {
     <div>
       {establishment && (
         <>
+          <img src={establishment.imageUrl} alt="" />
           <h3>{establishment.companyName}</h3>
           <p>Location: {establishment.location}</p>
           <p>
