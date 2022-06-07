@@ -6,12 +6,32 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 function EditProfilePage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
   const [profileType, setProfileType] = useState("");
   const [comments, setComments] = useState("");
   const [establishments, setEstablishments] = useState("");
 
   const { userId } = useParams();
   const navigate = useNavigate();
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    const getToken = localStorage.getItem("authToken");
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setImageUrl(response.data.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   const getProfile = async () => {
     try {
@@ -24,6 +44,7 @@ function EditProfilePage() {
           },
         }
       );
+      setImageUrl(response.data.imageUrl);
       setProfileType(response.data.profileType);
       setUsername(response.data.username);
       setEmail(response.data.email);
@@ -67,6 +88,7 @@ function EditProfilePage() {
 
     const body = {
       username,
+      imageUrl,
       email,
       comments,
       establishments,
@@ -81,6 +103,7 @@ function EditProfilePage() {
         },
       })
       .then(() => {
+        setImageUrl("");
         setProfileType("");
         setUsername("");
         setComments("");
@@ -93,6 +116,12 @@ function EditProfilePage() {
   return (
     <Form className="EditProjectPage login-form" onSubmit={handleSubmit}>
       <h3>Edit Profile</h3>
+
+      <FormGroup>
+        <Label htmlFor="imageUrl">Image</Label>
+        <Input type="file" name="imageUrl" onChange={handleFileUpload} />
+      </FormGroup>
+
       <FormGroup>
         <Label htmlFor="username">Username</Label>
         <Input
