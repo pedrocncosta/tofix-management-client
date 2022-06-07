@@ -12,6 +12,7 @@ import EditProfilePage from "./pages/EditProfilePage";
 import EstablishmentsPage from "./pages/EstablishmentsPage";
 import EstablishmentDetailsPage from "./pages/EstablishmentDetailsPage";
 import CategoriesPage from "./pages/CategoriesPage";
+import AddCommentPage from "./pages/AddCommentPage";
 
 function App() {
   return (
@@ -86,6 +87,14 @@ function App() {
           element={
             <IsPrivate>
               <EstablishmentDetailsPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/establishment/addcomment/:postId"
+          element={
+            <IsPrivate>
+              <AddCommentPage />
             </IsPrivate>
           }
         />

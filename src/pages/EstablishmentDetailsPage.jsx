@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 function EstablishmentDetailsPage() {
   const [establishment, setEstablishment] = useState(null);
@@ -26,8 +26,14 @@ function EstablishmentDetailsPage() {
 
   const deleteEstablishment = async () => {
     try {
+      const getToken = localStorage.getItem("authToken");
       await axios.delete(
-        `${process.env.REACT_APP_API_URL}/api/categories/type/${postId}`
+        `${process.env.REACT_APP_API_URL}/api/categories/${postId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
       );
       navigate("/categories");
     } catch (error) {
@@ -64,6 +70,7 @@ function EstablishmentDetailsPage() {
           );
         })}
       <button onClick={deleteEstablishment}>Delete Establishment</button>
+      <Link to={`/establishment/addcomment/${postId}`}>Add a Comment</Link>
     </div>
   );
 }

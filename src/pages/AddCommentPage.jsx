@@ -6,7 +6,7 @@ function AddCommentPage() {
   const [name, setName] = useState("");
   const [comments, setComments] = useState("");
 
-  const { id } = useParams();
+  const { postId } = useParams();
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
@@ -16,10 +16,16 @@ function AddCommentPage() {
     e.preventDefault();
     const body = { name, comments };
 
+    const getToken = localStorage.getItem("authToken");
     axios
       .post(
-        `${process.env.REACT_APP_API_URL}/api/categories/type/${id}/comment`,
-        body
+        `${process.env.REACT_APP_API_URL}/api/categories/type/${postId}/comment`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
       )
       .then(() => {
         setName("");
@@ -44,6 +50,8 @@ function AddCommentPage() {
           value={comments}
           onChange={handleComments}
         ></textarea>
+
+        <button type="submit">Add Comment</button>
       </form>
     </div>
   );

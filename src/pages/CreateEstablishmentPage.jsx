@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 function CreateEstablishmentPage() {
   const [companyName, setCompanyName] = useState("");
   const [location, setLocation] = useState("");
-  const [profileImage, setProfileImage] = useState("");
+  /* const [profileImage, setProfileImage] = useState(""); */
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
@@ -16,7 +16,7 @@ function CreateEstablishmentPage() {
 
   const handleCompanyName = (e) => setCompanyName(e.target.value);
   const handleLocation = (e) => setLocation(e.target.value);
-  const handleProfileImage = (e) => setProfileImage(e.target.value);
+  /* const handleProfileImage = (e) => setProfileImage(e.target.value); */
   const handlePhoneNumber = (e) => setPhoneNumber(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handleComments = (e) => setComments(e.target.value);
@@ -27,20 +27,25 @@ function CreateEstablishmentPage() {
     const body = {
       companyName,
       location,
-      profileImage,
+      //profileImage,
       phoneNumber,
       email,
       comments,
       establishmentOwner,
     };
 
+    const getToken = localStorage.getItem("authToken");
     axios
-      .post(`${process.env.REACT_APP_API_URL}/api/categories/type`, body)
+      .post(`${process.env.REACT_APP_API_URL}/api/categories/establishment`, body, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      })
 
       .then(() => {
         setCompanyName("");
         setLocation("");
-        setProfileImage("");
+        //setProfileImage("");
         setPhoneNumber(0);
         setEmail("");
         setComments("");
@@ -88,7 +93,7 @@ function CreateEstablishmentPage() {
         <Input type="text" name="email" value={email} onChange={handleEmail} />
       </FormGroup>
 
-      <FormGroup>
+     {/*  <FormGroup>
         <Label htmlFor={comments}>Comments: </Label>
         <Input
           type="textarea"
@@ -106,7 +111,7 @@ function CreateEstablishmentPage() {
           value={establishmentOwner}
           onChange={handleEstablishmentOwner}
         />
-      </FormGroup>
+      </FormGroup> */}
 
       <FormGroup>
         <Button block type="submit">
