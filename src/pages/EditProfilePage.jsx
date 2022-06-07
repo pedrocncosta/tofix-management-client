@@ -173,7 +173,7 @@ function EditProfilePage() {
       </FormGroup>
 
       <FormGroup>
-        <Button block onClick={deleteProfile}>
+        <Button block onClick={deleteProfile} variant="secondary">
           Delete profile
         </Button>
       </FormGroup>

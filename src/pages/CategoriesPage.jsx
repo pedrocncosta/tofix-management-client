@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import homeLogo from "../assets/casa.png";
-import carLogo from "../assets/carro.png";
-import techLogo from "../assets/e-mail.png";
+import homeLogo from "../assets/home.png";
+import carLogo from "../assets/sport-car.png";
+import techLogo from "../assets/laptop.png";
 import {  Image } from "react-bootstrap";
 /* import Image from "react-bootstrap/Image";
  */

@@ -65,7 +65,7 @@ function ProfilePage() {
               className="d-grid gap-2 "
               to={`/profile/edit/${userId}`}
             >
-              <Button size="lg" variant="warning">
+              <Button size="lg" variant="secondary">
                 Edit
               </Button>
             </Link>

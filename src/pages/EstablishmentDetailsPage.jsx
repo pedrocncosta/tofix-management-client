@@ -82,7 +82,7 @@ function EstablishmentDetailsPage() {
           );
         })}
 
-      <Button size="lg" variant="warning" onClick={deleteEstablishment}>
+      <Button size="lg" variant="secondary" onClick={deleteEstablishment}>
         Delete Establishment
       </Button>
       <Link to={`/establishment/addcomment/${postId}`}>Add a Comment</Link>

@@ -33,7 +33,7 @@ function EstablishmentsPage() {
     <div className="container">
       <Link style={{ textDecoration: "none" }}
               className="d-grid gap-2 pt-2 pb-2 " to={"/categories/create"}>
-        <Button size="lg" variant="warning">
+        <Button size="lg" variant="secondary">
           Regist your Establishment
         </Button>
       </Link>

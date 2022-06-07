@@ -1,16 +1,11 @@
-/*Navbar*/
-.myNav {
-  width: 100vw;
-  background-color: #fff8dc;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2%;
-  text-align: center;
+body {
+  background-color: #ebe08b;
 }
 
-.myNav img {
-  width: 10%;
+/*Navbar*/
+.myNav {
+  background-color: #e0c916;
+  margin-bottom: 2%;
 }
 
 /*homepage*/
