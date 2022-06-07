@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 function CreateEstablishmentPage() {
   const [companyName, setCompanyName] = useState("");
@@ -50,54 +51,69 @@ function CreateEstablishmentPage() {
   };
 
   return (
-    <div>
+    <Form className="login-form" onSubmit={handleSubmit}>
       <h1>Regist your Establishment</h1>
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={companyName}>Establishment Name: </label>
-        <input
+      <FormGroup>
+        <Label htmlFor={companyName}>Establishment Name: </Label>
+        <Input
           type="text"
           name="companyName"
           value={companyName}
           onChange={handleCompanyName}
         />
+      </FormGroup>
 
-        <label htmlFor={location}>Location: </label>
-        <input
+      <FormGroup>
+        <Label htmlFor={location}>Location: </Label>
+        <Input
           type="text"
           name="location"
           value={location}
           onChange={handleLocation}
         />
+      </FormGroup>
 
-        <label htmlFor={phoneNumber}>Phone Number: </label>
-        <input
+      <FormGroup>
+        <Label htmlFor={phoneNumber}>Phone Number: </Label>
+        <Input
           type="number"
           name="phoneNumber"
           value={phoneNumber}
           onChange={handlePhoneNumber}
         />
+      </FormGroup>
 
-        <label htmlFor={email}>Email: </label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+      <FormGroup>
+        <Label htmlFor={email}>Email: </Label>
+        <Input type="text" name="email" value={email} onChange={handleEmail} />
+      </FormGroup>
 
-        <label htmlFor={comments}>Comments: </label>
-        <input
-          type="text"
+      <FormGroup>
+        <Label htmlFor={comments}>Comments: </Label>
+        <Input
+          type="textarea"
           name="comments"
           value={comments}
           onChange={handleComments}
         />
+      </FormGroup>
 
-        <label htmlFor={establishmentOwner}>Owner: </label>
-        <input
+      <FormGroup>
+        <Label htmlFor={establishmentOwner}>Owner: </Label>
+        <Input
           type="text"
           name="establishmentOwner"
           value={establishmentOwner}
           onChange={handleEstablishmentOwner}
         />
-      </form>
-    </div>
+      </FormGroup>
+
+      <FormGroup>
+        <Button block type="submit">
+          Create
+        </Button>
+      </FormGroup>
+    </Form>
   );
 }
 
