@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
 function EstablishmentsPage() {
   const [establishments, setEstablishments] = useState([]);
@@ -29,13 +30,24 @@ function EstablishmentsPage() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
+      <Link style={{ textDecoration: "none" }}
+              className="d-grid gap-2 pt-2 pb-2 " to={"/categories/create"}>
+        <Button size="lg" variant="warning">
+          Regist your Establishment
+        </Button>
+      </Link>
       {establishments.map((establish) => {
         return (
           <div key={establish._id}>
-            <Link to={`/categories/type/${establish._id}`}>
-              <h4>{establish.companyName}</h4>
-            </Link>
+            <Card style={{ width: "93vw" }}>
+              <Link to={`/categories/type/${establish._id}`}>
+                <Card.Img src={establish.imageUrl} alt="establishment" />
+              </Link>
+              <Card.Title className="text-center">
+                {establish.companyName.toUpperCase()}
+              </Card.Title>
+            </Card>
           </div>
         );
       })}

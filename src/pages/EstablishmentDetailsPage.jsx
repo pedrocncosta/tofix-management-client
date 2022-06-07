@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
 function EstablishmentDetailsPage() {
   const [establishment, setEstablishment] = useState(null);
@@ -46,20 +47,30 @@ function EstablishmentDetailsPage() {
   }, []);
 
   return (
-    <div>
-      {establishment && (
+    <div className="container">
+      {establishment !== null && (
         <>
-          <img src={establishment.imageUrl} alt="" />
-          <h3>{establishment.companyName}</h3>
-          <p>Location: {establishment.location}</p>
-          <p>
-            Contacts: {establishment.phoneNumber} {establishment.email}
-          </p>
-          <p>Owner: {establishment.establishmentOwner.username}</p>
+          <Card>
+            <Card.Img src={establishment.imageUrl} alt="" />
+            <Card.Title>{establishment.companyName.toUpperCase()}</Card.Title>
+            <p>
+              <b>Location:</b> {establishment.location}
+            </p>
+            <p>
+              <b>Contacts:</b>{" "}
+              <ul>
+                <li>{establishment.phoneNumber}</li>{" "}
+                <li>{establishment.email}</li>
+              </ul>
+            </p>
+            <p>
+              <b>Owner:</b> {establishment.establishmentOwner.username}
+            </p>
+          </Card>
         </>
       )}
 
-      {establishment &&
+      {establishment !== null &&
         establishment.comments.map((comment) => {
           return (
             <li key={comment._id}>
@@ -70,7 +81,10 @@ function EstablishmentDetailsPage() {
             </li>
           );
         })}
-      <button onClick={deleteEstablishment}>Delete Establishment</button>
+
+      <Button size="lg" variant="warning" onClick={deleteEstablishment}>
+        Delete Establishment
+      </Button>
       <Link to={`/establishment/addcomment/${postId}`}>Add a Comment</Link>
     </div>
   );

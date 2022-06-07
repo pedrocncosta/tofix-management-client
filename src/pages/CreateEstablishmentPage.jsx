@@ -17,7 +17,7 @@ function CreateEstablishmentPage() {
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
     const getToken = localStorage.getItem("authToken");
-    uploadData.append("profileImage", e.target.files[0]);
+    uploadData.append("imageUrl", e.target.files[0]);
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
@@ -34,7 +34,6 @@ function CreateEstablishmentPage() {
 
   const handleCompanyName = (e) => setCompanyName(e.target.value);
   const handleLocation = (e) => setLocation(e.target.value);
-  const handleImageUrl = (e) => setImageUrl(e.target.value);
   const handlePhoneNumber = (e) => setPhoneNumber(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handleComments = (e) => setComments(e.target.value);
@@ -63,7 +62,6 @@ function CreateEstablishmentPage() {
           },
         }
       )
-
       .then(() => {
         setCompanyName("");
         setLocation("");
