@@ -35,10 +35,7 @@ function ProfilePage() {
     <div className="container">
       {user && (
         <Card style={{ width: "93vw" }}>
-          <Card.Img
-            variant="top"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2020-02-17_Encontro_com_T%C3%A9cnico_do_Flamengo%2C_Jorge_Jesus_%28cropped%29.jpg/640px-2020-02-17_Encontro_com_T%C3%A9cnico_do_Flamengo%2C_Jorge_Jesus_%28cropped%29.jpg"
-          />
+          <Card.Img src={user.imageUrl} />
           <Card.Body>
             <Card.Title>
               <h1>Welcome {user.username} </h1>
@@ -51,11 +48,17 @@ function ProfilePage() {
             </Card.Text>
             <Card.Text>
               <b> Establishment: </b>
-              {user.establishments.length ? user.establishments[0].companyName : "No company"}
+              {user.establishments.length
+                ? user.establishments[0].companyName
+                : "No company"}
             </Card.Text>
             <Card.Text>
               <b> Comment: </b>
-              {(user.establishments.length && user.establishments[0].comments.length) && user.establishments[0].comments[0].comments ? user.establishments[0].comments[0].comments : "no comments"}
+              {user.establishments.length &&
+              user.establishments[0].comments.length &&
+              user.establishments[0].comments[0].comments
+                ? user.establishments[0].comments[0].comments
+                : "no comments"}
             </Card.Text>
             <Link
               style={{ textDecoration: "none" }}
