@@ -57,8 +57,7 @@ function EstablishmentDetailsPage() {
     <div className="container ">
       {establishment !== null && (
         <>
-          <Card>
-            <Card.Img src={establishment.imageUrl} alt="image" />
+         
           <Card className="container myCard">
             <Card.Img src={establishment.imageUrl} alt="" />
             <Card.Title>{establishment.companyName.toUpperCase()}</Card.Title>
@@ -67,17 +66,7 @@ function EstablishmentDetailsPage() {
             </Card.Text>
             <Card.Text>
               <b>Location:</b> {establishment.location}
-            </p>
-            <p>About us:</p>
-            <p>
-              <b>Contacts:</b>
-              <ul>
-                <li>{establishment.phoneNumber}</li>
-                <li>{establishment.email}</li>
-              </ul>
-            </p>
-            <p>
-            </Card.Text>
+          </Card.Text>
             <Card.Text>
               <b>Owner:</b> {establishment.establishmentOwner.username}
             </Card.Text>
