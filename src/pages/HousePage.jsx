@@ -21,6 +21,7 @@ function HousePage() {
       })
       .then((response) => {
         setEstablishment(response.data);
+        console.log(response.data);
       })
       .catch((err) => console.log(err));
   };

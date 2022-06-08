@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 function CreateEstablishmentPage() {
   const [companyName, setCompanyName] = useState("");
   const [location, setLocation] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState();
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [aboutUs, setAboutUs] = useState("");
   const [email, setEmail] = useState("");
@@ -71,7 +71,7 @@ function CreateEstablishmentPage() {
       .then(() => {
         setCompanyName("");
         setLocation("");
-        setImageUrl("");
+        setImageUrl();
         setPhoneNumber(0);
         setEmail("");
         setAboutUs("");
