@@ -45,11 +45,14 @@ function TechPage() {
           if (el.role === "devices") {
             return (
               <div key={el._id}>
-                <Card className="myCard" style={{ width: "93vw" }}>
+                <Card className="myCard mt-3" style={{ width: "93vw" }}>
                   <Link to={`/categories/type/${el._id}`}>
-                    <Card.Img src={el.imageUrl} alt="Establishment" />
+                    <Card.Img
+                      src={el.imageUrl}
+                      alt="Establishment"
+                    />
                   </Link>
-                  <Card.Title className="text-center">
+                  <Card.Title className="text-center pt-2">
                     {el.companyName.toUpperCase()}
                   </Card.Title>
                 </Card>

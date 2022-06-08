@@ -60,7 +60,9 @@ function EstablishmentDetailsPage() {
         <>
           <Card className="container myCard">
             <Card.Img src={establishment.imageUrl} alt="" />
-            <Card.Title>{establishment.companyName.toUpperCase()}</Card.Title>
+            <Card.Title className="pt-2">
+              {establishment.companyName.toUpperCase()}
+            </Card.Title>
             <Card.Text>
               <b>About us:</b> {establishment.aboutUs}
               {console.log(establishment.aboutUs)}

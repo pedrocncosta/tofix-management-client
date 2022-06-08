@@ -36,8 +36,8 @@ function AddCommentPage() {
   };
 
   return (
-    <Form className="EditProjectPage login-form" onSubmit={handleSubmit}>
-      <h1>Give a comment of the service</h1>
+    <Form className="EditProjectPage  login-form" onSubmit={handleSubmit}>
+      <h1>Comment the service</h1>
 
       <FormGroup>
         <Label htmlFor="name">Name:</Label>

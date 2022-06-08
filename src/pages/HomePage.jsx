@@ -4,7 +4,7 @@ import { Card, Carousel, Button } from "react-bootstrap";
 function HomePage() {
   return (
     <div className="mainHome container">
-      <Carousel>
+      <Carousel fade>
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -13,7 +13,10 @@ function HomePage() {
           />
           <Carousel.Caption>
             <h3>Auto Repairs</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p>
+              Did your car stoped at the middle of the road? No problem just
+              click toFix
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -26,7 +29,11 @@ function HomePage() {
 
           <Carousel.Caption>
             <h3>Home Repairs</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>
+              Your dishwasher broke? No worries just choose one of the many
+              specialized technicians on the app and wait in the confort of your
+              home.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -40,7 +47,8 @@ function HomePage() {
           <Carousel.Caption>
             <h3>Tech Repairs</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              At toFix we have a lot of experts that can help you with your
+              devices. Hardware or software you can find a solution on the app.{" "}
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -51,9 +59,18 @@ function HomePage() {
         <Card.Body>
           <Card.Title>What is toFix</Card.Title>
           <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
+            At toFix we are proud to make life easier for everyone.
           </Card.Text>
+          <Card.Text>
+            Our mission is to create solutions to your everyday problems.
+          </Card.Text>
+          <Card.Text>Be it Auto, House or Tech we are glad to help.</Card.Text>
+
+          <Card.Text>
+            Find more time to enjoy your life and let our app help you solve all
+            the issues that might appear.
+          </Card.Text>
+
           <Link
             style={{ textDecoration: "none" }}
             className="d-grid gap-2 "
