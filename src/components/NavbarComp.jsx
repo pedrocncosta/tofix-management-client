@@ -7,7 +7,7 @@ function NavbarComp() {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
 
   return (
-    <Navbar className="myNav"  expand="lg">
+    <Navbar collapseOnSelect className="myNav" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to={"/"}>
           toFix
@@ -17,16 +17,16 @@ function NavbarComp() {
           <Nav className="me-auto">
             {isLoggedIn && (
               <>
-                <Nav.Link as={Link} to={`/user/${user._id}`}>
-                  Profile 
+                <Nav.Link eventKey="0" as={Link} to={`/user/${user._id}`}>
+                  Profile
                 </Nav.Link>
-                <Nav.Link as={Link} to={`/categories/type`}>
+                <Nav.Link eventKey="1" as={Link} to={`/categories/type`}>
                   Establishments
                 </Nav.Link>
-                <Nav.Link as={Link} to={`/categories`}>
+                <Nav.Link eventKey="2" as={Link} to={`/categories`}>
                   Categories
                 </Nav.Link>
-                <Nav.Link onClick={logoutUser}>
+                <Nav.Link eventKey="3" onClick={logoutUser}>
                   <b>Logout</b>
                 </Nav.Link>
               </>
@@ -34,7 +34,7 @@ function NavbarComp() {
 
             {!isLoggedIn && (
               <>
-                <Nav.Link as={Link} to={"/login"}>
+                <Nav.Link eventKey="4" as={Link} to={"/login"}>
                   Login
                 </Nav.Link>
               </>
