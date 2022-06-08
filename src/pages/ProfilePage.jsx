@@ -47,6 +47,9 @@ function ProfilePage() {
               <b>Email:</b> {user.email}
             </Card.Text>
             <Card.Text>
+              <b>About Me:</b> {user.aboutMe}
+            </Card.Text>
+            <Card.Text>
               <b> Establishment: </b>
               {user.establishments.length
                 ? user.establishments[0].companyName

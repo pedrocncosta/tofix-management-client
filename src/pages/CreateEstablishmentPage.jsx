@@ -8,9 +8,11 @@ function CreateEstablishmentPage() {
   const [location, setLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(0);
+  const [aboutUs, setAboutUs] = useState("");
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
   const [establishmentOwner, setEstablishmentOwner] = useState("");
+  const [role, setRole] = useState("");
 
   const navigate = useNavigate();
 
@@ -36,8 +38,10 @@ function CreateEstablishmentPage() {
   const handleLocation = (e) => setLocation(e.target.value);
   const handlePhoneNumber = (e) => setPhoneNumber(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
+  const handleAboutUs = (e) => setAboutUs(e.target.value);
   const handleComments = (e) => setComments(e.target.value);
   const handleEstablishmentOwner = (e) => setEstablishmentOwner(e.target.value);
+  const handleRole = (e) => setRole(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,9 +50,11 @@ function CreateEstablishmentPage() {
       location,
       imageUrl,
       phoneNumber,
+      aboutUs,
       email,
       comments,
       establishmentOwner,
+      role,
     };
 
     const getToken = localStorage.getItem("authToken");
@@ -68,8 +74,10 @@ function CreateEstablishmentPage() {
         setImageUrl("");
         setPhoneNumber(0);
         setEmail("");
+        setAboutUs("");
         setComments("");
         setEstablishmentOwner("");
+        setRole("");
         navigate("/categories/type");
       })
       .catch((err) => console.log(err));
@@ -92,6 +100,18 @@ function CreateEstablishmentPage() {
           value={companyName}
           onChange={handleCompanyName}
         />
+      </FormGroup>
+
+      <FormGroup>
+        <Label htmlFor="aboutUs">About Us</Label>
+        <Input
+          type="textarea"
+          name="aboutUs"
+          cols="30"
+          rows="10"
+          value={aboutUs}
+          onChange={handleAboutUs}
+        ></Input>
       </FormGroup>
 
       <FormGroup>
@@ -119,25 +139,16 @@ function CreateEstablishmentPage() {
         <Input type="text" name="email" value={email} onChange={handleEmail} />
       </FormGroup>
 
-      {/*  <FormGroup>
-        <Label htmlFor={comments}>Comments: </Label>
-        <Input
-          type="textarea"
-          name="comments"
-          value={comments}
-          onChange={handleComments}
-        />
-      </FormGroup>
-
       <FormGroup>
-        <Label htmlFor={establishmentOwner}>Owner: </Label>
-        <Input
-          type="text"
-          name="establishmentOwner"
-          value={establishmentOwner}
-          onChange={handleEstablishmentOwner}
-        />
-      </FormGroup> */}
+        <Label htmlFor={role}>Role: </Label>
+        <select name="" id="" onChange={handleRole}>
+          <option value=""></option>
+          <option value="home">Home</option>
+          <option value="auto">Auto</option>
+          <option value="devices">Devices</option>
+        </select>
+ 
+      </FormGroup>
 
       <FormGroup>
         <Button block type="submit">

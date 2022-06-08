@@ -13,6 +13,9 @@ import EstablishmentsPage from "./pages/EstablishmentsPage";
 import EstablishmentDetailsPage from "./pages/EstablishmentDetailsPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import AddCommentPage from "./pages/AddCommentPage";
+import HousePage from "./pages/HousePage";
+import AutoPage from "./pages/AutoPage";
+import TechPage from "./pages/TechPage";
 
 function App() {
   return (
@@ -95,6 +98,33 @@ function App() {
           element={
             <IsPrivate>
               <AddCommentPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/home"
+          element={
+            <IsPrivate>
+              <HousePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/auto"
+          element={
+            <IsPrivate>
+              <AutoPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/tech"
+          element={
+            <IsPrivate>
+              <TechPage />
             </IsPrivate>
           }
         />

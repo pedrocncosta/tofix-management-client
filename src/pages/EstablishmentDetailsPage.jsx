@@ -57,9 +57,9 @@ function EstablishmentDetailsPage() {
               <b>Location:</b> {establishment.location}
             </p>
             <p>
-              <b>Contacts:</b>{" "}
+              <b>Contacts:</b>
               <ul>
-                <li>{establishment.phoneNumber}</li>{" "}
+                <li>{establishment.phoneNumber}</li>
                 <li>{establishment.email}</li>
               </ul>
             </p>

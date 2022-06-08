@@ -7,6 +7,7 @@ function EditProfilePage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
 
   const [profileType, setProfileType] = useState("");
   const [comments, setComments] = useState("");
@@ -48,6 +49,7 @@ function EditProfilePage() {
       setProfileType(response.data.profileType);
       setUsername(response.data.username);
       setEmail(response.data.email);
+      setAboutMe(response.data.email);
       setComments(response.data.comments);
       setEstablishments(response.data.establishments);
     } catch (error) {
@@ -80,6 +82,7 @@ function EditProfilePage() {
   const handleProfileType = (e) => setProfileType(e.target.value);
   const handleUsername = (e) => setUsername(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
+  const handleAboutMe = (e) => setAboutMe(e.target.value);
   const handleComments = (e) => setComments(e.target.value);
   const handleEstablishments = (e) => setEstablishments(e.target.value);
 
@@ -90,6 +93,7 @@ function EditProfilePage() {
       username,
       imageUrl,
       email,
+      aboutMe,
       comments,
       establishments,
       profileType,
@@ -106,6 +110,7 @@ function EditProfilePage() {
         setImageUrl("");
         setProfileType("");
         setUsername("");
+        setAboutMe("");
         setComments("");
         setEstablishments("");
         navigate(`/user/${userId}`);
@@ -138,6 +143,18 @@ function EditProfilePage() {
       </FormGroup>
 
       <FormGroup>
+        <Label htmlFor="aboutMe">About Me</Label>
+        <Input
+          type="textarea"
+          name="aboutMe"
+          cols="30"
+          rows="10"
+          value={aboutMe}
+          onChange={handleAboutMe}
+        ></Input>
+      </FormGroup>
+
+      {/* <FormGroup>
         <Label htmlFor="comments">Comments</Label>
         <Input
           type="textarea"
@@ -157,14 +174,14 @@ function EditProfilePage() {
           value={establishments}
           onChange={handleEstablishments}
         />
-      </FormGroup>
+      </FormGroup> */}
 
-      <FormGroup>
+      {/* <FormGroup>
         <Input type="select" name="profileType" onChange={handleProfileType}>
           <option value="admin">Professional</option>
           <option value="user">User</option>
         </Input>
-      </FormGroup>
+      </FormGroup> */}
 
       <FormGroup>
         <Button block type="submit">
