@@ -27,6 +27,7 @@ function EstablishmentDetailsPage() {
         }
       );
       setEstablishment(response.data);
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     }
@@ -54,19 +55,19 @@ function EstablishmentDetailsPage() {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container">
       {establishment !== null && (
         <>
-         
           <Card className="container myCard">
             <Card.Img src={establishment.imageUrl} alt="" />
             <Card.Title>{establishment.companyName.toUpperCase()}</Card.Title>
             <Card.Text>
               <b>About us:</b> {establishment.aboutUs}
+              {console.log(establishment.aboutUs)}
             </Card.Text>
             <Card.Text>
               <b>Location:</b> {establishment.location}
-          </Card.Text>
+            </Card.Text>
             <Card.Text>
               <b>Owner:</b> {establishment.establishmentOwner.username}
             </Card.Text>
