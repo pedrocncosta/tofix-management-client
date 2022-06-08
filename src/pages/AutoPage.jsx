@@ -45,7 +45,7 @@ function AutoPage() {
           if (el.role === "auto") {
             return (
               <div key={el._id}>
-                <Card className="myCard" style={{ width: "93vw" }}>
+                <Card className="myCard container" style={{ width: "93vw" }}>
                   <Link to={`/categories/type/${el._id}`}>
                     <Card.Img src={el.imageUrl} alt="Establishment" />
                   </Link>
