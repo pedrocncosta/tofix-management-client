@@ -18,7 +18,7 @@ function NavbarComp() {
             {isLoggedIn && (
               <>
                 <Nav.Link as={Link} to={`/user/${user._id}`}>
-                  Profile
+                  Profile 
                 </Nav.Link>
                 <Nav.Link as={Link} to={`/categories/type`}>
                   Establishments
