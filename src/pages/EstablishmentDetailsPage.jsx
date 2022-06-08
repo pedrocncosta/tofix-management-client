@@ -51,12 +51,12 @@ function EstablishmentDetailsPage() {
       {establishment !== null && (
         <>
           <Card>
-            <Card.Img src={establishment.imageUrl} alt="" />
+            <Card.Img src={establishment.imageUrl} alt="image" />
             <Card.Title>{establishment.companyName.toUpperCase()}</Card.Title>
             <p>
               <b>Location:</b> {establishment.location}
             </p>
-            <p>About us:</p> {establishment.aboutUs}
+            <p>About us:</p>
             <p>
               <b>Contacts:</b>
               <ul>
