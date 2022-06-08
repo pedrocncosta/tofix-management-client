@@ -33,7 +33,7 @@ function HousePage() {
     <div>
       {establishment.length > 0 &&
         establishment.map((el) => {
-          if (el.role === "auto") {
+          if (el.role === "home") {
             return (
               <div key={el._id}>
                 <Card style={{ width: "93vw" }}>

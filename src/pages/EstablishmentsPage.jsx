@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
 function EstablishmentsPage() {
-  const [establishments, setEstablishments] = useState([]);
+  /* const [establishments, setEstablishments] = useState([]);
 
   const getAllEstablishments = async () => {
     try {
@@ -27,7 +27,7 @@ function EstablishmentsPage() {
 
   useEffect(() => {
     getAllEstablishments();
-  }, []);
+  }, []); */
 
   return (
     <div className="container">
@@ -37,7 +37,7 @@ function EstablishmentsPage() {
           Regist your Establishment
         </Button>
       </Link>
-      {establishments.map((establish) => {
+      {/* {establishments.map((establish) => {
         return (
           <div key={establish._id}>
             <Card style={{ width: "93vw" }}>
@@ -50,7 +50,7 @@ function EstablishmentsPage() {
             </Card>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }

@@ -49,7 +49,7 @@ function EditProfilePage() {
       setProfileType(response.data.profileType);
       setUsername(response.data.username);
       setEmail(response.data.email);
-      setAboutMe(response.data.email);
+      setAboutMe(response.data.aboutMe);
       setComments(response.data.comments);
       setEstablishments(response.data.establishments);
     } catch (error) {
@@ -110,6 +110,7 @@ function EditProfilePage() {
         setImageUrl("");
         setProfileType("");
         setUsername("");
+        setEmail("");
         setAboutMe("");
         setComments("");
         setEstablishments("");
@@ -153,35 +154,6 @@ function EditProfilePage() {
           onChange={handleAboutMe}
         ></Input>
       </FormGroup>
-
-      {/* <FormGroup>
-        <Label htmlFor="comments">Comments</Label>
-        <Input
-          type="textarea"
-          name="comments"
-          cols="30"
-          rows="10"
-          value={comments}
-          onChange={handleComments}
-        ></Input>
-      </FormGroup>
-
-      <FormGroup>
-        <Label htmlFor="establishments">Establishments</Label>
-        <Input
-          type="text"
-          name="establishments"
-          value={establishments}
-          onChange={handleEstablishments}
-        />
-      </FormGroup> */}
-
-      {/* <FormGroup>
-        <Input type="select" name="profileType" onChange={handleProfileType}>
-          <option value="admin">Professional</option>
-          <option value="user">User</option>
-        </Input>
-      </FormGroup> */}
 
       <FormGroup>
         <Button block type="submit">

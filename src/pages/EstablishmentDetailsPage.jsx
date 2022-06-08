@@ -56,6 +56,7 @@ function EstablishmentDetailsPage() {
             <p>
               <b>Location:</b> {establishment.location}
             </p>
+            <p>About us:</p> {establishment.aboutUs}
             <p>
               <b>Contacts:</b>
               <ul>

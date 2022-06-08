@@ -147,7 +147,6 @@ function CreateEstablishmentPage() {
           <option value="auto">Auto</option>
           <option value="devices">Devices</option>
         </select>
- 
       </FormGroup>
 
       <FormGroup>
