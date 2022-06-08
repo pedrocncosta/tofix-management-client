@@ -46,7 +46,7 @@ function HomePage() {
         </Carousel.Item>
       </Carousel>
 
-      <Card className="homeCard">
+      <Card className="homeCard myButtons">
         <Card.Header>About Us</Card.Header>
         <Card.Body>
           <Card.Title>What is toFix</Card.Title>
