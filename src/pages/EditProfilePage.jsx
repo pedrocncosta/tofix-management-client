@@ -156,13 +156,13 @@ function EditProfilePage() {
       </FormGroup>
 
       <FormGroup>
-        <Button block type="submit">
+        <Button className="myButtons" block type="submit">
           Submit changes
         </Button>
       </FormGroup>
 
       <FormGroup>
-        <Button block onClick={deleteProfile} variant="secondary">
+        <Button block onClick={deleteProfile} className="myButtons">
           Delete profile
         </Button>
       </FormGroup>

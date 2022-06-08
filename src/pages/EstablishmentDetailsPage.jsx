@@ -1,7 +1,14 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
-import { Card, Button } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  Card,
+  Button,
+  ListGroup,
+  ListGroupItem,
+  Accordion,
+} from "react-bootstrap";
 
 function EstablishmentDetailsPage() {
   const [establishment, setEstablishment] = useState(null);
@@ -47,13 +54,18 @@ function EstablishmentDetailsPage() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container ">
       {establishment !== null && (
         <>
           <Card>
             <Card.Img src={establishment.imageUrl} alt="image" />
+          <Card className="container myCard">
+            <Card.Img src={establishment.imageUrl} alt="" />
             <Card.Title>{establishment.companyName.toUpperCase()}</Card.Title>
-            <p>
+            <Card.Text>
+              <b>About us:</b> {establishment.aboutUs}
+            </Card.Text>
+            <Card.Text>
               <b>Location:</b> {establishment.location}
             </p>
             <p>About us:</p>
@@ -65,8 +77,19 @@ function EstablishmentDetailsPage() {
               </ul>
             </p>
             <p>
+            </Card.Text>
+            <Card.Text>
               <b>Owner:</b> {establishment.establishmentOwner.username}
-            </p>
+            </Card.Text>
+            <ListGroup className="myCard list-group-flush">
+              <b>Contacts:</b>
+              <ListGroupItem className="myCard">
+                {establishment.phoneNumber}
+              </ListGroupItem>
+              <ListGroupItem className="myCard">
+                {establishment.email}
+              </ListGroupItem>
+            </ListGroup>
           </Card>
         </>
       )}
@@ -74,19 +97,34 @@ function EstablishmentDetailsPage() {
       {establishment !== null &&
         establishment.comments.map((comment) => {
           return (
-            <li key={comment._id}>
-              <h3>{comment.name}</h3>
-              <h4>Description:</h4>
-              <p>{comment.comments}</p>
-              <p>Author: {comment.author.username}</p>
-            </li>
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Comment: {comment.name}</Accordion.Header>
+                <Accordion.Body className="myCard" key={comment._id}>
+                  <Card.Title>Description:</Card.Title>
+                  <Card.Text>{comment.comments}</Card.Text>
+                  <Card.Text>
+                    <b> Author:</b> {comment.author.username}
+                  </Card.Text>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           );
         })}
 
-      <Button size="lg" variant="secondary" onClick={deleteEstablishment}>
-        Delete Establishment
-      </Button>
-      <Link to={`/establishment/addcomment/${postId}`}>Add a Comment</Link>
+      <div className="d-grid gap-2">
+        <Button
+          as={Link}
+          size="lg"
+          className="myButtons"
+          to={`/establishment/addcomment/${postId}`}
+        >
+          Add a Comment
+        </Button>
+        <Button size="lg" className="myButtons" onClick={deleteEstablishment}>
+          Delete Establishment
+        </Button>
+      </div>
     </div>
   );
 }

@@ -31,13 +31,13 @@ function HousePage() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <Link
         style={{ textDecoration: "none" }}
         className="d-grid gap-2 pt-2 pb-2 "
         to={"/categories/create"}
       >
-        <Button size="lg" variant="secondary">
+        <Button size="lg" className="myButtons">
           Regist your Establishment
         </Button>
       </Link>
@@ -46,7 +46,7 @@ function HousePage() {
           if (el.role === "home") {
             return (
               <div key={el._id}>
-                <Card style={{ width: "93vw" }}>
+                <Card className="myCard" style={{ width: "93vw" }}>
                   <Link to={`/categories/type/${el._id}`}>
                     <Card.Img src={el.imageUrl} alt="Establishment" />
                   </Link>

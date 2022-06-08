@@ -59,7 +59,7 @@ function HomePage() {
             className="d-grid gap-2 "
             to={"/login"}
           >
-            <Button size="lg" variant="secondary">
+            <Button size="lg" className="myButtons">
               Join us
             </Button>
           </Link>

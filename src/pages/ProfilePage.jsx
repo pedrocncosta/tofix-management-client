@@ -34,7 +34,7 @@ function ProfilePage() {
   return (
     <div className="container">
       {user && (
-        <Card style={{ width: "93vw" }}>
+        <Card className="myCard" style={{ width: "93vw" }}>
           <Card.Img src={user.imageUrl} />
           <Card.Body>
             <Card.Title>
@@ -68,7 +68,7 @@ function ProfilePage() {
               className="d-grid gap-2 "
               to={`/profile/edit/${userId}`}
             >
-              <Button size="lg" variant="secondary">
+              <Button size="lg" className="myButtons">
                 Edit
               </Button>
             </Link>

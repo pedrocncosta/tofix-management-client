@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { Form, Button, Label, Input, FormGroup } from "reactstrap";
 
 function AddCommentPage() {
   const [name, setName] = useState("");
@@ -35,25 +36,32 @@ function AddCommentPage() {
   };
 
   return (
-    <div>
+    <Form className="EditProjectPage login-form" onSubmit={handleSubmit}>
       <h1>Give a comment of the service</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+      <FormGroup>
+        <Label htmlFor="name">Name:</Label>
+        <Input type="text" name="name" value={name} onChange={handleName} />
+      </FormGroup>
 
-        <label htmlFor="comments">Comment:</label>
-        <textarea
+      <FormGroup>
+        <Label htmlFor="comments">Comment:</Label>
+        <Input
+          type="textarea"
           name="description"
           cols="30"
           rows="10"
           value={comments}
           onChange={handleComments}
-        ></textarea>
+        ></Input>
+      </FormGroup>
 
-        <button type="submit">Add Comment</button>
-      </form>
-    </div>
+      <FormGroup>
+        <Button type="submit" className="myButtons">
+          Add Comment
+        </Button>
+      </FormGroup>
+    </Form>
   );
 }
 

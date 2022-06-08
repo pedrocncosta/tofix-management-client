@@ -10,7 +10,7 @@ function NavbarComp() {
     <Navbar collapseOnSelect className="myNav" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to={"/"}>
-          toFix
+          to<b>Fix</b>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
