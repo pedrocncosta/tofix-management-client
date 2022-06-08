@@ -88,12 +88,12 @@ function CreateEstablishmentPage() {
       <h1>Regist your Establishment</h1>
 
       <FormGroup>
-        <Label htmlFor="imageUrl">Image</Label>
+        <Label htmlFor="imageUrl">Image *</Label>
         <Input type="file" name="imageUrl" onChange={handleFileUpload} />
       </FormGroup>
 
       <FormGroup>
-        <Label htmlFor={companyName}>Establishment Name: </Label>
+        <Label htmlFor={companyName}>Establishment Name *</Label>
         <Input
           type="text"
           name="companyName"
@@ -115,7 +115,7 @@ function CreateEstablishmentPage() {
       </FormGroup>
 
       <FormGroup>
-        <Label htmlFor={location}>Location: </Label>
+        <Label htmlFor={location}>Location * </Label>
         <Input
           type="text"
           name="location"
@@ -125,7 +125,7 @@ function CreateEstablishmentPage() {
       </FormGroup>
 
       <FormGroup>
-        <Label htmlFor={phoneNumber}>Phone Number: </Label>
+        <Label htmlFor={phoneNumber}>Phone Number</Label>
         <Input
           type="number"
           name="phoneNumber"
@@ -135,18 +135,18 @@ function CreateEstablishmentPage() {
       </FormGroup>
 
       <FormGroup>
-        <Label htmlFor={email}>Email: </Label>
+        <Label htmlFor={email}>Email *</Label>
         <Input type="text" name="email" value={email} onChange={handleEmail} />
       </FormGroup>
 
       <FormGroup>
-        <Label htmlFor={role}>Role: </Label>
-        <select name="" id="" onChange={handleRole}>
+        <Label htmlFor={role}>Role *</Label>
+        <Input type="select" name="" id="" onChange={handleRole}>
           <option value=""></option>
           <option value="home">Home</option>
           <option value="auto">Auto</option>
           <option value="devices">Devices</option>
-        </select>
+        </Input>
       </FormGroup>
 
       <FormGroup>

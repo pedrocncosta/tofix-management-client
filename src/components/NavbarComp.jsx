@@ -20,9 +20,6 @@ function NavbarComp() {
                 <Nav.Link eventKey="0" as={Link} to={`/user/${user._id}`}>
                   Profile
                 </Nav.Link>
-                <Nav.Link eventKey="1" as={Link} to={`/categories/type`}>
-                  Establishments
-                </Nav.Link>
                 <Nav.Link eventKey="2" as={Link} to={`/categories`}>
                   Categories
                 </Nav.Link>

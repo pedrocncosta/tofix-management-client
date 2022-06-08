@@ -9,7 +9,6 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import CreateEstablishmentPage from "./pages/CreateEstablishmentPage";
 import EditProfilePage from "./pages/EditProfilePage";
-import EstablishmentsPage from "./pages/EstablishmentsPage";
 import EstablishmentDetailsPage from "./pages/EstablishmentDetailsPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import AddCommentPage from "./pages/AddCommentPage";
@@ -72,15 +71,6 @@ function App() {
           element={
             <IsPrivate>
               <CreateEstablishmentPage />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/categories/type"
-          element={
-            <IsPrivate>
-              <EstablishmentsPage />
             </IsPrivate>
           }
         />

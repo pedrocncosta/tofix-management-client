@@ -31,6 +31,15 @@ function AutoPage() {
 
   return (
     <div>
+      <Link
+        style={{ textDecoration: "none" }}
+        className="d-grid gap-2 pt-2 pb-2 "
+        to={"/categories/create"}
+      >
+        <Button size="lg" variant="secondary">
+          Regist your Establishment
+        </Button>
+      </Link>
       {establishment.length > 0 &&
         establishment.map((el) => {
           if (el.role === "auto") {
