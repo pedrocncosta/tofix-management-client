@@ -150,7 +150,7 @@ function CreateEstablishmentPage() {
       </FormGroup>
 
       <FormGroup>
-        <Button block type="submit">
+        <Button className="myButtons" block type="submit">
           Create
         </Button>
       </FormGroup>

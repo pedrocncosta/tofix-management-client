@@ -41,3 +41,12 @@ body {
   max-width: 200px;
   margin: 5%;
 }
+/*cards*/
+.myCard {
+  background-color: #fffacd;
+}
+
+/*Buttons*/
+.myButtons {
+  background-color: #b0c4de;
+}

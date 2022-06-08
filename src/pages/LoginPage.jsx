@@ -57,7 +57,7 @@ function Loginpage() {
         />
       </FormGroup>
 
-      <Button className="mt-3 mb-3" block type="submit">
+      <Button className="myButtons mt-3 mb-3" block type="submit">
         Login
       </Button>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
