@@ -11,7 +11,7 @@ function HomePage() {
             src="https://autogarageinc.com/wp-content/uploads/2020/03/Screenshot_3.jpg"
             alt="First slide"
           />
-          <Carousel.Caption>
+          <Carousel.Caption >
             <h3>Auto Repairs</h3>
             <p>
               Did your car stoped at the middle of the road? No problem just
@@ -55,9 +55,10 @@ function HomePage() {
       </Carousel>
 
       <Card className="homeCard myCard">
-        <Card.Header>About Us</Card.Header>
+        <Card.Header>
+          <b>What is toFix</b>
+        </Card.Header>
         <Card.Body>
-          <Card.Title>What is toFix</Card.Title>
           <Card.Text>
             At toFix we are proud to make life easier for everyone.
           </Card.Text>
