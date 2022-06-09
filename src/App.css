@@ -1,12 +1,12 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #fdf3a9;
+  background-color: #f2f1f1;
   color: rgba(31, 31, 31, 0.962);
 }
 
 /*Navbar*/
 .myNav {
-  background-color: #e0c916;
+  background-color: #E8DCAE;
   margin-bottom: 2%;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 .homeCard {
-  background-color: #fffacd;
+  background-color:  #FFFCE6;
   width: 100%;
   margin-top: 5%;
 }
@@ -48,8 +48,9 @@ body {
 
 /*Buttons*/
 .myButtons {
+  font-weight: bold;
   border-style: hidden;
-  background-color: #b0c4de;
+  background-color: #A1A6B3;
 }
 
 /*profile*/
@@ -57,7 +58,7 @@ body {
   max-height: 100vh;
   max-width: 400px;
   height: auto;
-  background-color: #fffacd;
+  background-color: #FFFCE6;
 }
 
 .imgProfile {
@@ -71,7 +72,7 @@ body {
 /* categories Lists */
 
 .listCards {
-  background-color: #fffacd;
+  background-color:  #FFECBF;
   max-width: 400px;
 }
 .listsContainer {
