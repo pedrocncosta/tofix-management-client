@@ -63,6 +63,7 @@ function ProfilePage() {
                 ? user.establishments[0].comments[0].comments
                 : "no comments"}
             </Card.Text>
+
             <Link
               style={{ textDecoration: "none" }}
               className="d-grid gap-2 "

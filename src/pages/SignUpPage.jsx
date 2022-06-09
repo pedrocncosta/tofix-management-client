@@ -61,9 +61,10 @@ function Signuppage() {
       </FormGroup>
 
       <FormGroup>
-        <Input type="select" name="profileType" onChange={handleProfileType}>
-          <option value="admin">Professional</option>
+        <Label htmlFor={profileType}>Role</Label>
+        <Input type="select" name="" onChange={handleProfileType}>
           <option value="user">User</option>
+          <option value="admin">Professional</option>
         </Input>
       </FormGroup>
 
