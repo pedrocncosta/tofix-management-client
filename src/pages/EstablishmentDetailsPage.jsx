@@ -15,6 +15,10 @@ function EstablishmentDetailsPage() {
   const { postId } = useParams();
   const navigate = useNavigate();
 
+  const { userId } = useParams();
+
+  const [user, setUser] = useState(null);
+
   const getEstablishment = async () => {
     try {
       const getToken = localStorage.getItem("authToken");
@@ -27,7 +31,25 @@ function EstablishmentDetailsPage() {
         }
       );
       setEstablishment(response.data);
-      console.log(response.data)
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUser = async () => {
+    try {
+      const getToken = localStorage.getItem("authToken");
+      let response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/user/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
+      setUser(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -52,6 +74,7 @@ function EstablishmentDetailsPage() {
 
   useEffect(() => {
     getEstablishment();
+    getUser();
   }, []);
 
   return (
@@ -113,9 +136,17 @@ function EstablishmentDetailsPage() {
         >
           Add a Comment
         </Button>
-        <Button size="lg" className="myButtons" onClick={deleteEstablishment}>
-          Delete Establishment
-        </Button>
+        {user &&
+          establishment &&
+          user._id === establishment.establishmentOwner._id && (
+            <Button
+              size="lg"
+              className="myButtons"
+              onClick={deleteEstablishment}
+            >
+              Delete Establishment
+            </Button>
+          )}
       </div>
     </div>
   );
