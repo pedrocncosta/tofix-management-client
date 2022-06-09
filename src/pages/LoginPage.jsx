@@ -34,7 +34,7 @@ function Loginpage() {
   };
 
   return (
-    <Form className="login-form" onSubmit={handleSubmit}>
+    <Form className="EditProjectPage login-form" onSubmit={handleSubmit}>
       <h1 className="text-center">Login</h1>
 
       <FormGroup>

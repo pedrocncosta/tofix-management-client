@@ -72,11 +72,15 @@ body {
 
 .listCards {
   background-color: #fffacd;
-  max-width: 0px;
+  max-width: 400px;
 }
 .listsContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.EditProjectPage{
+  max-width: 400px;
 }

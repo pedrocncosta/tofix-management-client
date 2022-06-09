@@ -65,28 +65,29 @@ function TechPage() {
           </Button>
         </Link>
       )}
-
-      {establishment.length > 0 &&
-        establishment.map((el) => {
-          if (el.role === "devices") {
-            return (
-              <div key={el._id}>
-                <Card
-                  className="myCard container mt-3"
-                  style={{ width: "93vw" }}
-                >
-                  <Link to={`/categories/type/${el._id}`}>
-                    <Card.Img src={el.imageUrl} alt="Establishment" />
-                  </Link>
-                  <Card.Title className="pt-2">
-                    {el.companyName.toUpperCase()}
-                  </Card.Title>
-                  <Card.Text>{el.location}</Card.Text>
-                </Card>
-              </div>
-            );
-          }
-        })}
+      <div className="listsContainer">
+        {establishment.length > 0 &&
+          establishment.map((el) => {
+            if (el.role === "devices") {
+              return (
+                <div key={el._id}>
+                  <Card
+                    className="myCard container mt-3"
+                    style={{ width: "93vw" }}
+                  >
+                    <Link to={`/categories/type/${el._id}`}>
+                      <Card.Img src={el.imageUrl} alt="Establishment" />
+                    </Link>
+                    <Card.Title className="pt-2">
+                      {el.companyName.toUpperCase()}
+                    </Card.Title>
+                    <Card.Text>{el.location}</Card.Text>
+                  </Card>
+                </div>
+              );
+            }
+          })}
+      </div>
     </div>
   );
 }
