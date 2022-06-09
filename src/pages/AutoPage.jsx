@@ -44,9 +44,9 @@ function AutoPage() {
         establishment.map((el) => {
           if (el.role === "auto") {
             return (
-              <div key={el._id}>
+              <div className="listsContainer" key={el._id}>
                 <Card
-                  className="myCard container mt-3"
+                  className="listCards container mt-3"
                   style={{ width: "93vw" }}
                 >
                   <Link to={`/categories/type/${el._id}`}>

@@ -44,13 +44,6 @@ body {
   max-width: 200px;
   margin: 5%;
 }
-/*cards*/
-.myCard {
-  max-height: 100vh;
-  max-width: 400px;
-  height: auto;
-  background-color: #fffacd;
-}
 
 /*Buttons*/
 .myButtons {
@@ -59,13 +52,30 @@ body {
 }
 
 /*profile*/
-.imgProfile{
+.myCard {
+  max-height: 100vh;
+  max-width: 400px;
+  height: auto;
+  background-color: #fffacd;
+}
+
+.imgProfile {
   max-height: 420px;
 }
-.profileMain{
-display: flex;
-flex-direction: column;
-align-items: center;
+.profileMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+/* categories Lists */
 
-
+.listCards {
+  background-color: #fffacd;
+  max-width: 360px;
+}
+.listsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
