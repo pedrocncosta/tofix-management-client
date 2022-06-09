@@ -84,3 +84,8 @@ body {
 .EditProjectPage{
   max-width: 400px;
 }
+
+/*establishment details*/
+.estbDetailsMAin{
+  max-width: 350px;
+}

@@ -78,7 +78,7 @@ function EstablishmentDetailsPage() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container estbDetailsMAin">
       {establishment !== null && (
         <>
           <Card className="container myCard">
@@ -112,7 +112,7 @@ function EstablishmentDetailsPage() {
       {establishment !== null &&
         establishment.comments.map((comment) => {
           return (
-            <Accordion>
+            <Accordion >
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Comment: {comment.name}</Accordion.Header>
                 <Accordion.Body className="myCard" key={comment._id}>
