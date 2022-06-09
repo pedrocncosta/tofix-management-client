@@ -32,10 +32,10 @@ function ProfilePage() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container profileMain">
       {user && (
-        <Card className="myCard" style={{ width: "93vw" }}>
-          <Card.Img src={user.imageUrl} />
+        <Card className="myCard container" style={{ width: "93vw" }}>
+          <Card.Img className="imgProfile" src={user.imageUrl} />
           <Card.Body>
             <Card.Title>
               <h1>Welcome {user.username} </h1>

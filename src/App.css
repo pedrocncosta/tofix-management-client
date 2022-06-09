@@ -46,6 +46,9 @@ body {
 }
 /*cards*/
 .myCard {
+  max-height: 100vh;
+  max-width: 400px;
+  height: auto;
   background-color: #fffacd;
 }
 
@@ -54,3 +57,15 @@ body {
   border-style: hidden;
   background-color: #b0c4de;
 }
+
+/*profile*/
+.imgProfile{
+  max-height: 420px;
+}
+.profileMain{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
