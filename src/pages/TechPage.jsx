@@ -76,10 +76,15 @@ function TechPage() {
                     style={{ width: "93vw" }}
                   >
                     <Link to={`/categories/type/${el._id}`}>
-                      <Card.Img src={el.imageUrl} alt="Establishment" />
+                      <Card.Img
+                        className="listImg"
+                        src={el.imageUrl}
+                        alt="Establishment"
+                      />
                     </Link>
                     <Card.Title className="pt-2">
-                      {el.companyName.toUpperCase()}
+                      {" "}
+                      <b>{el.companyName.toUpperCase()}</b>
                     </Card.Title>
                     <Card.Text>{el.location}</Card.Text>
                   </Card>

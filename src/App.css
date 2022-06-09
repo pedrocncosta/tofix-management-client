@@ -6,7 +6,7 @@ body {
 
 /*Navbar*/
 .myNav {
-  background-color: #E8DCAE;
+  background-color: #e8dcae;
   margin-bottom: 2%;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 .homeCard {
-  background-color:  #FFFCE6;
+  background-color: #fffce6;
   width: 100%;
   margin-top: 5%;
 }
@@ -50,7 +50,7 @@ body {
 .myButtons {
   font-weight: bold;
   border-style: hidden;
-  background-color: #A1A6B3;
+  background-color: #a1a6b3;
 }
 
 /*profile*/
@@ -58,7 +58,7 @@ body {
   max-height: 100vh;
   max-width: 400px;
   height: auto;
-  background-color: #FFFCE6;
+  background-color: #fffce6;
 }
 
 .imgProfile {
@@ -71,8 +71,13 @@ body {
 }
 /* categories Lists */
 
+.listImg {
+  max-width: 400px;
+  max-height: 400px;
+}
+
 .listCards {
-  background-color:  #FFECBF;
+  background-color: #ffecbf;
   max-width: 400px;
 }
 .listsContainer {
@@ -82,11 +87,11 @@ body {
   flex-wrap: wrap;
 }
 
-.EditProjectPage{
+.EditProjectPage {
   max-width: 400px;
 }
 
 /*establishment details*/
-.estbDetailsMAin{
+.estbDetailsMAin {
   max-width: 350px;
 }
