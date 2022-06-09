@@ -55,7 +55,6 @@ body {
 
 /*profile*/
 .myCard {
-  max-height: 100vh;
   max-width: 400px;
   height: auto;
   background-color: #FFFCE6;

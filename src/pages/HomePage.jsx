@@ -11,7 +11,7 @@ function HomePage() {
             src="https://autogarageinc.com/wp-content/uploads/2020/03/Screenshot_3.jpg"
             alt="First slide"
           />
-          <Carousel.Caption >
+          <Carousel.Caption>
             <h3>Auto Repairs</h3>
             <p>
               Did your car stoped at the middle of the road? No problem just
