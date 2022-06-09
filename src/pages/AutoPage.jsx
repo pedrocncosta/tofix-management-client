@@ -72,7 +72,7 @@ function AutoPage() {
               return (
                 <div key={el._id}>
                   <Card
-                    className="myCard  container mt-3"
+                    className="myCard container mt-3"
                     style={{ width: "93vw" }}
                   >
                     <Link to={`/categories/type/${el._id}`}>
