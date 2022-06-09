@@ -54,7 +54,7 @@ function TechPage() {
 
   return (
     <div className="container">
-      {user && user.profileType === "user" && (
+      {user && user.profileType === "admin" && (
         <Link
           style={{ textDecoration: "none" }}
           className="d-grid gap-2 pt-2 pb-2 "

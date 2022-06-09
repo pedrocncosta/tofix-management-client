@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 
 function HousePage() {
   const [establishment, setEstablishment] = useState([]);
-  
+
   const { userId } = useParams();
 
   const [user, setUser] = useState(null);
@@ -55,7 +55,7 @@ function HousePage() {
 
   return (
     <div className="container">
-      {user && user.profileType === "user" && (
+      {user && user.profileType === "admin" && (
         <Link
           style={{ textDecoration: "none" }}
           className="d-grid gap-2 pt-2 pb-2 "
