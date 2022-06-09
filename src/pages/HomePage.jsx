@@ -54,7 +54,7 @@ function HomePage() {
         </Carousel.Item>
       </Carousel>
 
-      <Card className="homeCard myCard">
+      <Card className="homeCard ">
         <Card.Header>
           <b>What is toFix</b>
         </Card.Header>
