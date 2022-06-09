@@ -71,7 +71,6 @@ body {
 
 .listCards {
   background-color: #fffacd;
-  max-width: 360px;
 }
 .listsContainer {
   display: flex;
