@@ -3,10 +3,13 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 
 function HousePage() {
   const [establishment, setEstablishment] = useState([]);
+  const [user, setUser] = useState(null);
+  
 
   const { getToken } = useContext(AuthContext);
 
@@ -32,6 +35,7 @@ function HousePage() {
 
   return (
     <div className="container">
+    
       <Link
         style={{ textDecoration: "none" }}
         className="d-grid gap-2 pt-2 pb-2 "

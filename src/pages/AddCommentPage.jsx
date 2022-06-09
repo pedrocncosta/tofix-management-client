@@ -31,7 +31,7 @@ function AddCommentPage() {
       .then(() => {
         setName("");
         setComments("");
-        navigate("/");
+        navigate(`/categories/type/${postId}`);
       });
   };
 

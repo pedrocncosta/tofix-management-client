@@ -78,7 +78,7 @@ function CreateEstablishmentPage() {
         setComments("");
         setEstablishmentOwner("");
         setRole("");
-        navigate("/categories/type");
+        navigate("/categories");
       })
       .catch((err) => console.log(err));
   };
