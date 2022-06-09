@@ -1,6 +1,7 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #fdf3a9;
+  color: rgba(31, 31, 31, 0.962);
 }
 
 /*Navbar*/
@@ -50,6 +51,6 @@ body {
 
 /*Buttons*/
 .myButtons {
-  
+  border-style: hidden;
   background-color: #b0c4de;
 }

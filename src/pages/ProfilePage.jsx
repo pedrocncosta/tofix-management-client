@@ -40,7 +40,7 @@ function ProfilePage() {
             <Card.Title>
               <h1>Welcome {user.username} </h1>
             </Card.Title>
-            <Card.Text>
+            <Card.Text className="mt-4">
               <b>Username: </b> {user.username}
             </Card.Text>
             <Card.Text>
